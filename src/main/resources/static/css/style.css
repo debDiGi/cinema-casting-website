@@ -26,3 +26,15 @@ body {
         background-color: #f8f9fa; /* Colore di sfondo al passaggio del mouse */
         color: #007bff; /* Colore del testo al passaggio del mouse */
     }
+    
+    /* Stile del footer */
+footer {
+    background-color: #333; /* Colore di sfondo del footer */
+    color: #fff; /* Colore del testo nel footer */
+    padding: 10px; /* Padding interno al footer */
+    width: 100%; /* Occupa l'intera larghezza della finestra */
+    position: relative; /* Imposta la posizione a relativa */
+    bottom: 0; /* Posiziona il footer in basso della finestra */
+    min-height: 50vh; /* Altezza minima del 100% della viewport height */
+}
+    

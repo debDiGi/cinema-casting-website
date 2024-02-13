@@ -37,4 +37,35 @@ footer {
     bottom: 0; /* Posiziona il footer in basso della finestra */
     min-height: 50vh; /* Altezza minima del 100% della viewport height */
 }
-    
+.user-container {
+     text-align: center;
+     margin-top: 50px;
+ }
+.profile-image {
+     width: 150px;
+     height: 150px;
+     border-radius: 50%;
+     object-fit: cover;
+     margin-top: 20px;
+ }
+.greetings {
+     margin-top: 20px;
+     font-size: 24px;
+ }
+.reserved-area {
+     margin-top: 10px;
+     font-size: 18px;
+ }
+.user-details {
+     text-align: left;
+     margin-top: 30px;
+ }
+.details-card {
+     border: 1px solid #ccc;
+     padding: 20px;
+     border-radius: 10px;
+     margin-bottom: 20px;
+ }
+.image-box {
+     margin-top: 20px;
+ }

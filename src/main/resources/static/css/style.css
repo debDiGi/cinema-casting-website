@@ -1,0 +1,28 @@
+/* Stili personalizzati per il titolo del film */
+.film-title {
+  color: #007bff; /* Colore del testo primario di Bootstrap */
+  text-decoration: none; /* Rimuove l'underline */
+  transition: color 0.3s; /* Aggiunge una transizione al cambio di colore */
+}
+
+.film-title:hover {
+  color: #0056b3; /* Cambia il colore al passaggio del mouse */
+}
+
+body {
+	background-color: #f4f4f4;
+}
+
+#hero{
+	background-color: #ffffff;
+}
+
+.nav-link.active {
+        background-color: #808080; /* Colore di sfondo quando è attivo */
+        color: #007bff; /* Colore del testo quando è attivo */
+    }
+
+.nav-link:hover {
+        background-color: #f8f9fa; /* Colore di sfondo al passaggio del mouse */
+        color: #007bff; /* Colore del testo al passaggio del mouse */
+    }

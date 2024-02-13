@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">   
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+ <link href="../css/style.css" rel="stylesheet">
+<title>Singolo Genere</title>
+</head>
+<body>
+
+<!-- non si genera la lista nel dropdown -->
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<div class="container">
+  
+    <h2 th:text="${genere}" class="mb-3"></h2>
+
+    <div class="row">
+      <!-- gli underscore per far trattare genere come una variabile th-->
+      <div th:each="film : ${filmsMap[__${genere}__]}" class="col-md-6 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              <a th:href="@{/dettagliofilm(id=${film.id})}" th:text="${film.titolo}" class="film-title"></a>
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+</body>
+</html>

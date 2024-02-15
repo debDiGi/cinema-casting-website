@@ -26,10 +26,8 @@
       <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
           <img class="rounded-lg-3" th:src="@{${film.locandina}}" alt="" width="320">
       </div>
-    </div>
-  </div>
-  
-	<!-- CAST -->	
+      
+      	<!-- CAST -->	
 	<div class="container mx-2 mt-4 " >
 		<div class="row" id="cast">	
 			<div th:each="attore : ${cast}" class="col mb-4">
@@ -44,6 +42,12 @@
 	       </div>
 		</div>
 	</div>
+	
+    </div>
+    
+  </div>
+  
+
 
 <div th:replace="~{fragments/footer :: footer}"></div>
 

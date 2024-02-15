@@ -16,8 +16,6 @@
       <h3 class="card-title" th:text="${attore.nome} + ' ' + ${attore.cognome}"></h3>
       <h6 class="card-subtitle mb-2 text-muted" th:text="${#temporals.format(attore.dataNascita, 'dd-MM-yyyy')}"></h6>
 
-      <!-- Applica stili inline per scalare le immagini -->
-      <img th:src="@{${attore.ritratto}}" class="card-img img-thumbnail mt-4" alt="ritratto" style="max-width:50%; height:auto;">
 
       <h5 class="mt-4">Filmografia</h5>
       <ul class="list-unstyled">
@@ -25,9 +23,28 @@
         <a th:href="@{/dettagliofilm(id=${f.id})}" th:text="${f.titolo}"></a>
         </li>
       </ul>
+		
+		<!-- CAROUSEL -->
+	  <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" style="max-width:30%">
+      	<div class="carousel-inner">
+        	<div class="carousel-item active">
+                <img th:src="@{${attore.ritratto}}" class="d-block w-100" alt="Ritratto">
+            </div>
+            <div class="carousel-item">
+                <img th:src="@{${attore.foto}}" class="d-block w-100" alt="Foto Intera">
+            </div>
+            <!-- Aggiungi altri carousel-item se necessario -->
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+      </div>
 
-      <!-- Applica stili inline per scalare le immagini -->
-      <img th:src="@{${attore.foto}}" class="card-img img-thumbnail mt-4" alt="foto" style="max-width:50%; height:auto;">
     </div>
   </div>
 </div>

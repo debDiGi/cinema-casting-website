@@ -55,8 +55,13 @@
     </div>
 </div>
 
-  <a th:href="@{riservata/logout}" class="btn btn-danger mt-4">Log Out</a>
-  <a th:href="@{riservata/cancellaaccount(id=${attore.id})}" class="btn btn-danger btn-sm" th:text="'Elimina Account'"></a>
+<!-- Aggiorna il tuo codice HTML per i bottoni Log Out e Elimina Account -->
+<div class="d-flex flex-column align-items-center mt-4">
+    <a th:href="@{riservata/logout}" class="btn btn-danger">Log Out</a>
+    <a th:href="@{riservata/cancellaaccount(id=${attore.id})}" class="sm mt-2" th:text="'Elimina Account'"
+        style="color: red; text-decoration: underline;"></a>
+</div>
+
 
 
 <div th:replace="~{fragments/footer :: footer}"></div>

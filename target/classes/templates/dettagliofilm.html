@@ -28,20 +28,31 @@
       </div>
       
       	<!-- CAST -->	
-	<div class="container mx-2 mt-4 " >
-		<div class="row" id="cast">	
-			<div th:each="attore : ${cast}" class="col mb-4">
-	 	       <div class="card d-flex">
-					<a th:href="@{/dettaglioattore(id=${attore.id})}" class="text-center">
-						<img th:src="@{${attore.ritratto}}" class="card-img-top img-fluid align-self-center" alt="Immagine Attore" style="width: 150px;">
-					</a>
-					<div class="card-body text-center">
-						<a th:href="@{/dettaglioattore(id=${attore.id})}" class="btn btn-primary" th:text="${attore.nome} + ' ' + ${attore.cognome}"></a>
-					</div>
-				</div>                
-	       </div>
-		</div>
-	</div>
+	<div class="container mb-2 mt-2">
+      
+      <div class="row row-cols-2 g-3">
+      <!-- gli underscore per far trattare genere come una variabile th-->
+  <div class="col" th:each="attore : ${cast}" >
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img
+            th:src="${attore.ritratto}" 
+            class="img-fluid rounded-start"
+          />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">      	
+            <h5 class="card-title" th:text="${attore.nome} + ' ' + ${attore.cognome}"></h5>
+            
+            <a th:href="@{/dettaglioattore(id=${attore.id})}"> Scopri di più</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
 	
     </div>
     

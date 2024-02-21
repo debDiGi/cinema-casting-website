@@ -13,53 +13,57 @@
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 
 
-  <div class="b-example-divider"></div>
+  
 
-<div class="container-fluid px-0 py-5" id="hero">
-    <div class="container px-4">
-        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-            <div class="col-10 col-sm-8 col-lg-6">
-                <img src="https://hips.hearstapps.com/hmg-prod/images/movies-based-on-a-true-story-64e7c14b60826.jpg?crop=1.28xw:0.886xh;0,0.0341xh&resize=1200:*" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
-            </div>
-            <div class="col-lg-6">
-                <h1 class="display-5 fw-bold lh-1 mb-3">Creiamo storie indimenticabili, un volto alla volta.</h1>
-                <p class="lead">Benvenuti nell'arte del casting e nella magia della produzione cinematografica. Dai un'occhiata alle nostre ultime produzioni! Siamo sempre in cerca di talenti come il tuo!!! Avrai possibilità di formati e lavorare con grandi nomi del settore. Che aspetti?</p>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                    <a class="btn btn-primary btn-lg px-4 me-md-2" role="button" th:href="@{/registrazione}">Registrati Subito</a>
-                   
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+	<div class="container-fluid px-0 py-5" id="hero">
+	    <div class="container px-4">
+	        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+	            <div class="col-10 col-sm-8 col-lg-6">
+	                <img src="https://hips.hearstapps.com/hmg-prod/images/movies-based-on-a-true-story-64e7c14b60826.jpg?crop=1.28xw:0.886xh;0,0.0341xh&resize=1200:*" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+	            </div>
+	            <div class="col-lg-6">
+	                <h1 class="display-5 fw-bold lh-1 mb-3">Creiamo storie indimenticabili, un volto alla volta.</h1>
+	                <p class="lead">Benvenuti nell'arte del casting e nella magia della produzione cinematografica. Dai un'occhiata alle nostre ultime produzioni! Siamo sempre in cerca di talenti come il tuo!!! Avrai possibilità di formati e lavorare con grandi nomi del settore. Che aspetti?</p>
+	                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+	                    <a class="btn btn-primary btn-lg px-4 me-md-2" role="button" th:href="@{/registrazione}">Registrati Subito</a>
+	                   
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
 
 
-  <div class="b-example-divider"></div>
+
+ 	<div class="container align-items-center mt-4">
+		<h1 class="mb-3 text-center">Ultime produzioni</h1>
+	</div>
+		
+	<!-- Utilizzo di Bootstrap per migliorare la struttura -->
+	<div class="container">
+	    <div th:each="entry : ${filmsMap}" class="mt-5">
+	        <h4 th:text="${entry.key}" class="mb-3 text-center"></h4>
 	
+	        <div class="row">
+	            <!-- Itera sui primi due film di ogni genere -->
+	            <div th:each="film, iterStat : ${entry.value}" th:if="${iterStat.index lt 2}" class="col-md-6 mb-3">
+	                <div class="card">
+	                    <div class="card-body">
+	                        <h5 class="card-title">
+	                            <a th:href="@{/dettagliofilm(id=${film.id})}" th:text="${film.titolo}" class="film-title"></a>
+	                        </h5>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
 
-<!-- Utilizzo di Bootstrap per migliorare la struttura -->
-<div class="container">
-  <div th:each="entry : ${filmsMap}" class="mt-5">
-    <h2 th:text="${entry.key}" class="mb-3"></h2>
-
-    <div class="row">
-      <!-- Itera sui primi due film di ogni genere -->
-      <div th:each="film, iterStat : ${entry.value}" th:if="${iterStat.index lt 2}" class="col-md-6 mb-3">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">
-              <a th:href="@{/dettagliofilm(id=${film.id})}" th:text="${film.titolo}" class="film-title"></a>
-            </h5>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
- <div class="b-example-divider mt-4 mb-5"></div>
- 
-<div th:replace="~{fragments/footer :: footer}"></div>
+	
+	
+	 <div class="b-example-divider mt-4 mb-5"></div>
+	 
+	<div th:replace="~{fragments/footer :: footer}"></div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

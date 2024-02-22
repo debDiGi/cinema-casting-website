@@ -3,7 +3,13 @@ body {
 }
 
 #hero{
+	height: 80vh; 
+	display: flex; 
+	justify-content: center; 
+	align-items: center;
 	background-color: white;
+	margin-top: 50px;
+	
 }
 
 .nav-link {
@@ -88,8 +94,10 @@ footer {
     object-fit: cover;
 }
 
-.titoli, .btn-iscriviti {
+.titoli {
 	background-color: #FF6900;
+	padding:50em;
+	
 }
 
 .btn-iscriviti{

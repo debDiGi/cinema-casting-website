@@ -15,14 +15,14 @@
 
   
 
-	<div class="container-fluid px-0 p-5 " id="hero">
-	    <div class="container px-4 pt-2">
+<div class="container-fluid px-0 py-5" id="hero">
+    <div class="container px-4">
 	        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
 	            <div class="col-10 col-sm-8 col-lg-6">
 	                <img src="https://hips.hearstapps.com/hmg-prod/images/movies-based-on-a-true-story-64e7c14b60826.jpg?crop=1.28xw:0.886xh;0,0.0341xh&resize=1200:*" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500">
 	            </div>
 	            <div class="col-lg-6">
-	                <h1 class="display-5 fw-bold lh-1 mb-3">Creiamo storie indimenticabili, un volto alla volta.</h1>
+	                <h1 class="display-5 fw-bold lh-1 mb-3">Creiamo storie indimenticabili, un volto alla volta</h1>
 	                <p class="lead">Benvenuti nell'arte del casting e nella magia della produzione cinematografica. Dai un'occhiata alle nostre ultime produzioni! Siamo sempre in cerca di talenti come il tuo!!! Avrai possibilità di formati e lavorare con grandi nomi del settore. Che aspetti?</p>
 	                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
 	                    <a class="btn btn-dark btn-lg px-4 me-md-4 " role="button" th:href="@{/registrazione}">Registrati Subito</a>
@@ -35,9 +35,10 @@
 	
 
 
-<div class="container-fluid mb-2 py-5 sez-cards mx-0 px-0">
+<div class="container-fluid mb-2 sez-cards mx-0 px-0">
     <div class="container-fluid titoli text-white text-left p-5">
-        <h1 class="mb-3">Scopri tutte le selezioni aperte, candidati subito!</h1>
+        <h1 class="mb-3">Scopri tutte le selezioni aperte</h1>
+        <h1 style="text-decoration:underline;">Candidati subito</h1>
     </div>
     <div class="row row-cols-1 row-cols-md-4 g-3">
         <div class="col-md-3" th:each="film : ${openFilms}">

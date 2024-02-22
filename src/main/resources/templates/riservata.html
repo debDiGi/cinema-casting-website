@@ -18,7 +18,8 @@
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 
 <div class="container user-container">
-    <img th:src="${attore.ritratto}" alt="Immagine del Profilo" class="profile-image">
+    <img th:if="${attore.ritratto!=null}" th:src="${attore.ritratto}" alt="Immagine del Profilo" class="profile-image">
+    <img th:if="${attore.ritratto==null}" th:src="@{../image/ritratto-blank.webp}" alt="Immagine del Profilo" class="profile-image">
     <div class="greetings" th:text="'Ciao ' + ${attore.nome} + '!'"></div>
     <div class="reserved-area">Questa è la tua area riservata.</div>
 
@@ -35,7 +36,8 @@
 
         <div class="row image-box">
             <div class="col-md-6">
-                <img th:src="${attore.ritratto}" alt="Immagine 1" class="img-fluid">
+                <img th:if="${attore.ritratto!=null}" th:src="${attore.ritratto}" alt="foto primo piano" class="img-fluid">
+                <img th:if="${attore.ritratto==null}" th:src="@{../image/ritratto-blank.webp}" alt="foto primo piano" class="img-fluid">
                 <form th:object="${attore}" method="post" enctype="multipart/form-data" class="mt-3">
 		        <label for="ritratto" th:text="'Carica un nuovo primo piano:'"></label>
 		        <input type="file" id="ritratto" name="ritratto" accept="image/*" th:field="*{ritratto}">
@@ -44,7 +46,8 @@
             </div>
             
             <div class="col-md-6">
-                <img th:src="${attore.foto}" alt="Immagine 2" class="img-fluid">
+                <img th:if="${attore.foto!=null}" th:src="${attore.foto}" alt="Immagine 2" class="img-fluid">
+                <img th:if="${attore.foto==null}" th:src="@{../image/foto-blank.jpg}" alt="Immagine 2" class="img-fluid">
                 <form th:object="${attore}" method="post" enctype="multipart/form-data" class="mt-3">
 		        <label for="ritratto" th:text="'Carica un nuovo primo piano:'"></label>
 		        <input type="file" id="foto" name="foto" accept="image/*" th:field="*{foto}">

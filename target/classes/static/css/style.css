@@ -62,7 +62,7 @@ footer {
  }
 .details-card {
      border: 1px solid #ccc;
-     padding: 20px;
+     padding: 50px;
      border-radius: 10px;
      margin-bottom: 20px;
  }
@@ -71,3 +71,28 @@ footer {
  }
  
  
+    
+    .custom-card {
+        width: 200px; /* Larghezza fissa della card */
+    }
+
+    .custom-image {
+        width: 100%;
+        height: 500px; /* Altezza fissa dell'immagine */
+        object-fit: cover;
+    }
+
+    .card-body {
+        height: auto; /* Altezza fissa della card-body */
+    }
+
+    .custom-button {
+        margin-top: 10px; /* Margine superiore per allineare i bottoni */
+    }
+    
+    
+    .custom-locandina {
+        width: 100%;
+        height: 300px; /* Altezza fissa dell'immagine */
+        object-fit: cover;
+    }

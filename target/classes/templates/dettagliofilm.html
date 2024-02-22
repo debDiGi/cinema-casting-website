@@ -15,12 +15,13 @@
   <div class="container my-5">
     <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
       <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
-      	<h1 class="mb-4">Scopri il Nostro Team nel Cast di</h1>
+      	<h1 class="mb-4">Le selezioni del Cast sono aperte! Iscriviti subito!</h1>
         <h1 class="display-4 fw-bold lh-1" th:text="${film.titolo}"></h1>
         <p class="lead" th:text="${film.trama}"></p>
         <p th:text="'Data di uscita: ' + ${#temporals.format(film.dataUscita, 'dd-MM-yyyy')}"></p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-        <a th:href="@{'https://www.youtube.com/watch?v=' + ${film.trailer}}" class="btn btn-outline-primary btn-lg px-4 me-md-2 fw-bold">Guarda il trailer</a>
+        <a th:if="${!film.open}" th:href="@{'https://www.youtube.com/watch?v=' + ${film.trailer}}" class="btn btn-outline-primary btn-lg px-4 me-md-2 fw-bold">Guarda il trailer</a>
+        <a th:if="${film.open}" th:href="@{/login}" class="btn btn-outline-primary btn-lg px-4 me-md-2 fw-bold">Iscriviti alle selezioni</a>
         </div>
       </div>
       <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
@@ -31,9 +32,9 @@
 	<div class="container mb-2 mt-2">
       
       <div class="row row-cols-2 g-3">
-      <!-- gli underscore per far trattare genere come una variabile th-->
+
   <div class="col" th:each="attore : ${cast}" >
-    <div class="card mb-3" style="max-width: 540px;">
+    <div class="card mb-3" style="max-width: 100em;">
       <div class="row g-0">
         <div class="col-md-4">
           <img

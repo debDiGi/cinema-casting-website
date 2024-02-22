@@ -1,5 +1,6 @@
 package it.corso.service;
 
+
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -36,5 +37,11 @@ public class FilmServiceImpl implements FilmService {
 	public List<Attore> getCast(int id) {
 		Film film = filmDao.findById(id).orElse(null);	
 		return film.getAttori();
+	}
+
+
+	@Override
+	public List<Film> getOpenFilms() {		
+		return filmDao.findByOpenTrue();
 	}
 }

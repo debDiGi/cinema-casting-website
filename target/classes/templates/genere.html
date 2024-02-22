@@ -20,33 +20,33 @@
     </div>
   </div>
 
-<div class="container mb-2">
-      
-      <div class="row row-cols-2 g-3">
-      <!-- gli underscore per far trattare genere come una variabile th-->
-  <div class="col" th:each="film : ${filmsMap[__${genere}__]}">
-    <div class="card mb-3" style="max-width: 540px;">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img
-            th:src="${film.locandina}"
-            class="img-fluid rounded-start"
-          />
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">      	
-            <h5 class="card-title" th:text="${film.titolo}"></h5>
-            <p class="card-text">
-              <small class="text-muted" th:text="${film.dataUscita}"></small>
-            </p>
-            <a th:href="@{/dettagliofilm(id=${film.id})}"> Scopri di più</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-  </div>
+	<!-- CARDS -->
+	<div class="container mb-2">
+		<div class="row row-cols-2 g-3">
+	      <!-- gli underscore per far trattare genere come una variabile th-->
+			<div class="col" th:each="film : ${filmsMap[__${genere}__]}">
+	    		<div class="card mb-3" style="max-width: 540px;">
+	      			<div class="row g-0">
+	        			<div class="col-md-4">
+				          <img
+				            th:src="${film.locandina}"
+				            class="img-fluid rounded-start"
+				          />
+				        </div>
+				        <div class="col-md-8">
+		          			<div class="card-body">      	
+					            <h5 class="card-title" th:text="${film.titolo}"></h5>
+					            <p class="card-text">
+					              <small class="text-muted" th:text="${film.dataUscita}"></small>
+					            </p>
+		            			<a th:href="@{/dettagliofilm(id=${film.id})}"> Scopri di più</a>
+		          			</div>
+		        		</div>
+		      		</div>
+		    	</div>
+		  	</div>
+		</div>
+	</div>
 
 
 

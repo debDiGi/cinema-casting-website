@@ -9,6 +9,7 @@ import it.corso.model.Film;
 public interface FilmService {
 	
 	List<Film> getFilms();
+	List<Film> getOpenFilms();
 	Map<String, List<Film>> getFilmsByGenere(List<Film> films);
 	Film getFilmById(int id);
 	List<Attore> getCast(int id);

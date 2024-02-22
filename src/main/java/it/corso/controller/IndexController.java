@@ -24,6 +24,8 @@ public class IndexController {
 	@GetMapping
 	public String getPage(Model model) {
 		Map<String, List<Film>> filmsMap = filmService.getFilmsByGenere(filmService.getFilms());
+		List<Film> openFilms = filmService.getOpenFilms();
+		model.addAttribute("openFilms",openFilms);
 		model.addAttribute("filmsMap", filmsMap);
 		return "index";
 	}

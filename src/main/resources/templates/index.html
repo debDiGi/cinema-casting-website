@@ -19,7 +19,7 @@
 	    <div class="container px-4">
 	        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
 	            <div class="col-10 col-sm-8 col-lg-6">
-	                <img src="https://hips.hearstapps.com/hmg-prod/images/movies-based-on-a-true-story-64e7c14b60826.jpg?crop=1.28xw:0.886xh;0,0.0341xh&resize=1200:*" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+	                <img src="https://hips.hearstapps.com/hmg-prod/images/movies-based-on-a-true-story-64e7c14b60826.jpg?crop=1.28xw:0.886xh;0,0.0341xh&resize=1200:*" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500">
 	            </div>
 	            <div class="col-lg-6">
 	                <h1 class="display-5 fw-bold lh-1 mb-3">Creiamo storie indimenticabili, un volto alla volta.</h1>
@@ -32,9 +32,42 @@
 	        </div>
 	    </div>
 	</div>
+	
+	<div class="container align-items-center mt-4">
+		<h1 class="mb-3 text-center">Selezioni aperte, candidati subito!</h1>
+	</div>
+	<!-- CARDS -->
+	<div class="container mb-2">
+    <div class="row row-cols-2 g-3">
+        <div class="col" th:each="film : ${openFilms}">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img
+                            th:src="${film.locandina}"
+                            class="img-fluid rounded-start"
+                        />
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${film.titolo}"></h5>
+                            <p class="card-text">
+                                <small class="text-muted mb-4" th:text="${film.dataUscita}"></small>
+                            </p>
+                            <span class="badge bg-danger text-white">NEW</span>
+                            <br>
+                            <br>
+                            <a class="btn btn-dark btn-lg px-4 me-md-2 mt-4" role="button" th:href="@{/dettagliofilm(id=${film.id})}">Iscriviti alle selezioni!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-
-
+	
+	<!-- elenco -->
  	<div class="container align-items-center mt-4">
 		<h1 class="mb-3 text-center">Ultime produzioni</h1>
 	</div>

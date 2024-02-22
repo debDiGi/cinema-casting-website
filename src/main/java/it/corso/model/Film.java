@@ -34,6 +34,8 @@ public class Film {
 	private String genere;
 	@Column(name = "titolo")
 	private String titolo;
+	@Column(name="open")
+	private boolean open;
 	@ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
 	@JoinTable
 	(
@@ -89,6 +91,12 @@ public class Film {
 	}
 	public void setTitolo(String titolo) {
 		this.titolo = titolo;
+	}
+	public boolean isOpen() {
+		return open;
+	}
+	public void setOpen(boolean open) {
+		this.open = open;
 	}
 	
 	

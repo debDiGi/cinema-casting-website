@@ -20,8 +20,8 @@
         <p class="lead" th:text="${film.trama}"></p>
         <p th:text="'Data di uscita: ' + ${#temporals.format(film.dataUscita, 'dd-MM-yyyy')}"></p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-        <a th:if="${!film.open}" th:href="@{'https://www.youtube.com/watch?v=' + ${film.trailer}}" class="btn btn-outline-primary btn-lg px-4 me-md-2 fw-bold">Guarda il trailer</a>
-        <a th:if="${film.open}" th:href="@{/login}" class="btn btn-outline-primary btn-lg px-4 me-md-2 fw-bold">Iscriviti alle selezioni</a>
+        <a th:if="${!film.open}" th:href="@{'https://www.youtube.com/watch?v=' + ${film.trailer}}" class="btn btn-dark btn-lg px-4 me-md-2 fw-bold">Guarda il trailer</a>
+        <a th:if="${film.open}" th:href="@{/login}" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Iscriviti ora!</a>
         </div>
       </div>
       <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
@@ -46,7 +46,7 @@
           <div class="card-body">      	
             <h5 class="card-title" th:text="${attore.nome} + ' ' + ${attore.cognome}"></h5>
             
-            <a th:href="@{/dettaglioattore(id=${attore.id})}"> Scopri di più</a>
+            <a th:href="@{/dettaglioattore(id=${attore.id})}" class="btn btn-outline-primary"> Visita profilo</a>
           </div>
         </div>
       </div>

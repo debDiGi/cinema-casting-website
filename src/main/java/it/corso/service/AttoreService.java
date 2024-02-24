@@ -13,10 +13,11 @@ public interface AttoreService {
 	
 	public void registraAttore(String nome, String cognome, LocalDate dataNascita, String password, String email, MultipartFile ritratto, MultipartFile foto );
 	List<Attore> getAttori();
-	Attore getAttoreById(int id);
 	List<Film> getFilmografia(int id);
-	public boolean controlloLogin(String email, String password, HttpSession session);
+	List<Attore> getAttoriByNomeOCognome(String nomeCognome);
+	Attore getAttoreById(int id);
 	Attore checkAttore(String email);
+	public boolean controlloLogin(String email, String password, HttpSession session);
 	public void newRitratto(int id, MultipartFile newRitr,HttpSession session);
 	public void newFoto(int id, MultipartFile newFoto,HttpSession session);
 	void cancellaAccount(Attore attore);

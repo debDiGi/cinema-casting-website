@@ -1,5 +1,7 @@
 body {
 	background-color: white;
+	padding-top:50px;
+	overflow-x: hidden;
 }
 
 #hero{
@@ -17,7 +19,6 @@ body {
 }
 
 .nav-link:hover {
-        
         text-decoration:underline; /* Colore del testo al passaggio del mouse */
     	color: #333;
     }
@@ -30,7 +31,7 @@ footer {
     width: 100%; 
     position: relative; 
     bottom: 0;
-    min-height: 50vh; 
+    min-height: 30vh; 
 }
 .user-container {
      text-align: center;
@@ -122,3 +123,6 @@ footer {
 	text-decoration: underline;
 }
 
+#carouselExample{
+	height:600px
+}

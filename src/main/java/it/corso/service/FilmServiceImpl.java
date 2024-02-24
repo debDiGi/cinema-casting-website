@@ -44,4 +44,10 @@ public class FilmServiceImpl implements FilmService {
 	public List<Film> getOpenFilms() {		
 		return filmDao.findByOpenTrue();
 	}
+
+
+	@Override
+	public List<Film> getFilmsByTitolo(String titolo) {
+		return filmDao.findByTitoloContainingIgnoreCase(titolo);
+	}
 }

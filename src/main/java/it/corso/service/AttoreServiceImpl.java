@@ -128,5 +128,11 @@ public class AttoreServiceImpl implements AttoreService {
 		
 	}
 
+	@Override
+	public List<Attore> getAttoriByNomeOCognome(String nomeCognome) {
+
+		return attoreDao.findByNomeContainingIgnoreCaseOrCognomeContainingIgnoreCase(nomeCognome, nomeCognome);
+	}
+
 	
 }

@@ -8,62 +8,90 @@
 	</head>
 	<body>
 
-	<div class="container d-flex justify-content-center align-items-center vh-100">
-		 <form th:object="${attore}" method="post" enctype="multipart/form-data" class="p-4 border rounded">
-		 	<div th:if="${emailErr}" class="alert alert-warning" role="alert">
-		  		Esiste già un profilo associato a questa email.
-			</div>
-			<div th:if="${etaErr}" class="alert alert-warning" role="alert">
-		  		Data di nascita non valida.
-			</div>
-			<div th:if="${incompleto}" class="alert alert-warning" role="alert">
-		  		Inserisci tutti i dati obbligatori (*).
-			</div>
-		    <div class="mb-3">
-		    	<label>Nome: <span style="color:red">*</span></label>
-		    	<input type="text" class="form-control" th:field="*{nome}" placeholder="Inserire nome">
+	<div class="container d-flex justify-content-center align-items-center mt-2">
+		<div class="container mr-1">
+			<h1>Unisciti alla<br>nostra comunità di talenti! </h1>
+			<h4> Registra il tuo profilo e inizia a far brillare <br> la tua carriera nel mondo dello spettacolo.</h4>
+		</div>
+		<div class="container d-flex" style="margin-top:7em">
+		
+		 <form th:object="${attore}" method="post" enctype="multipart/form-data" class="p-4 border rounded bg-light">
+		    <div th:if="${emailErr}" class="alert alert-warning" role="alert">
+		        Esiste già un profilo associato a questa email.
 		    </div>
-		    <div class="mb-3">
-		    	<label>Cognome: <span style="color:red">*</span></label>
-		    	<input type="text" class="form-control" th:field="*{cognome}" placeholder="Inserire cognome">
+		    <div th:if="${etaErr}" class="alert alert-warning" role="alert">
+		        Data di nascita non valida.
 		    </div>
-		    <div class="mb-3">
-		    	<label>Data di nascita: <span style="color:red">*</span></label>
-		    	<input type="date" class="form-control" th:field="*{dataNascita}" placeholder="Inserire data di nascita">
+		    <div th:if="${incompleto}" class="alert alert-warning" role="alert">
+		        Inserisci tutti i dati obbligatori (*).
 		    </div>
-		    <div class="mb-3">
-		    <label>Email: <span style="color:red">*</span></label>
-		    	<input type="text" class="form-control" th:field="*{email}" placeholder="Inserire email">
+		
+		    <div class="row">
+		        <div class="col-md-6">
+		            <div class="mb-3">
+		                <label>Nome: <span style="color:red">*</span></label>
+		                <input type="text" class="form-control" th:field="*{nome}" placeholder="Inserire nome">
+		            </div>
+		        </div>
+		        <div class="col-md-6">
+		            <div class="mb-3">
+		                <label>Cognome: <span style="color:red">*</span></label>
+		                <input type="text" class="form-control" th:field="*{cognome}" placeholder="Inserire cognome">
+		            </div>
+		        </div>
 		    </div>
-		    <div class="mb-3">
-		    	<label>Password: <span style="color:red">*</span></label>
-		    	<input type="password" class="form-control" th:field="*{password}" placeholder="Inserire password">
-		    </div>
-		    <div class="mb-3">
-		    	<label for="ritratto" class="form-label" th:text="'Primo piano:'"></label>
-		    	<input type="file" id="ritratto" name="ritratto" accept="image/*" class="form-control" th:field="*{ritratto}">
-		    </div>
-		    <div class="mb-3">
-		    	<label for="foto" class="form-label" th:text="'Foto intera:'"></label>
-		    	<input type="file" id="foto" name="foto" accept="image/*" class="form-control" th:field="*{foto}">
-		    </div>
-		    
-		    <div class="mb-3">
-		    	<input type="submit" class="btn btn-primary" value="Registrati">
-		     
-		    	<div class="row mt-auto">
-				   	<div class="col-md-6">
-				       	<p>Hai già un tuo account?</p>
-				    </div>
-				    <div class="col-md-6">
-				    	<a th:href="@{/login}">Log In</a>
+		
+		    <div class="row">
+		        <div class="col-md-6">
+		            <div class="mb-3">
+		                <label>Data di nascita: <span style="color:red">*</span></label>
+		                <input type="date" class="form-control" th:field="*{dataNascita}" placeholder="Inserire data di nascita">
+		            </div>
+		        </div>
+		        <div class="col-md-6">
+		            <div class="mb-3">
+		                <label>Email: <span style="color:red">*</span></label>
+		                <input type="text" class="form-control" th:field="*{email}" placeholder="Inserire email">
+		            </div>
+		        </div>
+		        <div class="col-md-6">
+		        	<div class="mb-3">
+				    	<label>Password: <span style="color:red">*</span></label>
+				    	<input type="password" class="form-control" th:field="*{password}" placeholder="Inserire password">
 				    </div>
 				</div>
-					<div>
-						<a th:href="@{/}" th:text="'Torna Alla Home'" style="color:#0d6efd;"></a>
-					</div>			
-			</div>
-		</form>
+				<div class="col-md-6">
+		        	<div class="mb-3">
+				    	<label>Conferma Password: <span style="color:red">*</span></label>
+				    	<input type="password" class="form-control" placeholder="Inserire password">
+				    </div>
+				</div>
+		    </div>
+
+    <!-- Rimanenti campi del form... -->
+
+    <div class="mb-3">
+        <label for="ritratto" class="form-label" th:text="'Primo piano:'"></label>
+        <input type="file" id="ritratto" name="ritratto" accept="image/*" class="form-control" th:field="*{ritratto}">
+    </div>
+    <div class="mb-3">
+        <label for="foto" class="form-label" th:text="'Foto intera:'"></label>
+        <input type="file" id="foto" name="foto" accept="image/*" class="form-control" th:field="*{foto}">
+    </div>
+
+    <div class="mb-3">
+        <input type="submit" class="btn btn-primary" value="Registrati">
+
+        <div class="row mt-auto">
+            <div class="col-md-6">
+                <div>Hai già un tuo account?&nbsp;<a th:href="@{/login}">Log In</a></div>
+                <a th:href="@{/}" th:text="'Torna Alla Home'" style="color:#0d6efd;"></a>
+            </div>
+        </div>
+    </div>
+</form>
+
+		</div>
 	</div>
 
 </body>

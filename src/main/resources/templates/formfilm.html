@@ -28,10 +28,7 @@
             <div class="mb-3">
                 <label>Genere:</label>
                 <select class="form-select" th:field="*{genere}" required>
-                    <option value="azione" th:selected="${film.genere == 'azione'}">Azione</option>
-                    <option value="commedia" th:selected="${film.genere == 'commedia'}">Commedia</option>
-                    <option value="drammatico" th:selected="${film.genere == 'drammatico'}">Drammatico</option>
-                    <!-- Altre opzioni -->
+                    <option th:each="entry : ${filmsMap}" value="azione" th:selected="${film.genere == 'azione'}"></option>
                 </select>
             </div>
             <div class="mb-3">

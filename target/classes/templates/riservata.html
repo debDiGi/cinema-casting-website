@@ -26,6 +26,12 @@
                 <p class="card-text" th:text="'Cognome: '+${attore.cognome}"></p>
                 <p class="card-text" th:text="'Data di Nascita: ' + ${#temporals.format(attore.dataNascita, 'dd-MM-yyyy')}"></p>
                 <p class="card-text" th:text="'Email: '+ ${attore.email}"></p>
+                <div>
+                <h5>Le tue candidature</h5>
+                <ol>
+                	<li th:each="c : ${myCandidature}" th:text="'Film: ' + ${c.film.titolo} + ' -- Stato: ' + ${c.stato}" style="margin-bottom:5px"></li>
+                </ol>
+                </div>
             </div>
         </div>
 
@@ -53,13 +59,38 @@
     </div>
 </div>
 
-<!-- Aggiorna il tuo codice HTML per i bottoni Log Out e Elimina Account -->
-<div class="d-flex flex-column align-items-center mt-4">
-    <a th:href="@{riservata/logout}" class="btn btn-danger">Log Out</a>
-    <a th:href="@{riservata/cancellaaccount(id=${attore.id})}" class="sm mt-2" th:text="'Elimina Account'"
-        style="color: red; text-decoration: underline;"></a>
-</div>
 
+
+	<!-- Aggiorna il tuo codice HTML per i bottoni Log Out e Elimina Account -->
+	<div class="d-flex flex-column align-items-center mt-4">
+	    <a th:href="@{riservata/logout}" class="btn btn-danger mb-2">Log Out</a>
+	    <!-- Button trigger modal -->
+	<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
+	  Elimina Account
+	</button>
+	
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLongTitle">Elimina Account definitivamente</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        <p>Se elimini il tuo account tutti i tuoi dati andranno persi e non potrai più iscriverti ai casting.<br>Sei sicuro di voler eliminare definitivamente il tuo account?</p>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
+	        <a th:href="@{riservata/cancellaaccount(id=${attore.id})}" class="btn btn-danger" th:text="'Elimina'"></a>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	</div>
+	
 
 
 <div th:replace="~{fragments/footer :: footer}"></div>

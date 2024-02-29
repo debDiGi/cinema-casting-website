@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+    <title></title>
+</head>
+	<body>
+	    <div class="container mt-3" th:fragment="tattori">
+	        <h2>Gestione profili Attore</h2>
+	        <p>Qui puoi visualizzare tutti gli attori iscritti alla tua agency. Puoi eliminare un profilo o usare la barra di ricerca qui sotto per filtrare i profili attore nella tabella.</p>  
+	        <div class="d-flex">
+            	<img src="../image/search.svg" alt="cerca" style="min-width:20px; max-width:20px; margin-right:15px;">
+            	<input class="form-control" id="myInputa" type="text" placeholder="Cerca.." oninput="filterTable()">
+        	</div>
+	        <br>
+	
+	        <table class="table table-responsive table-striped">
+	        <thead>
+	            <tr>
+	                <th scope="col"><input type="checkbox" id="selezionaTuttoa"></th>
+	                <th>Nome completo</th>
+	                <th >Data di Nascita</th>
+	                <th>Email</th>
+	                <th></th>
+	            </tr>
+	        </thead>
+	        <tbody id="myTablea">
+	            <tr  th:each="a : ${attori}">
+	                <td><input type="checkbox" name="selezionaRiga"></td>
+	                <td  th:text="${a.nome} + ' ' + ${a.cognome}"></td>
+	                <td  th:text="${#temporals.format(a.dataNascita, 'dd-MM-yyyy')}"></td>
+	                <td  th:text="${a.email}"></td>
+	                <td>               
+					    <a th:href="@{adminpage/cancellaattore(id=${a.id})}" class="text-danger">
+					    	Elimina					    
+					        <img src="../image/trash.svg" alt="Elimina" style="min-width:15px">
+					    </a>
+					</td>	             
+	            </tr>      
+	        </tbody>
+	        </table>
+	    </div>
+	    
+	</body>
+	</html>

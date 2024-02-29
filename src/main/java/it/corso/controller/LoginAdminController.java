@@ -6,18 +6,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import it.corso.service.AttoreService;
+
+import it.corso.service.AdminService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
 
 @Controller
-@RequestMapping("/login")
-public class LoginController {
+@RequestMapping("/loginadmin")
+public class LoginAdminController {
 
 	@Autowired
-	private AttoreService attoreService;
+	private AdminService adminService;
 	
 	@GetMapping
 	public String getPage(
@@ -26,27 +27,25 @@ public class LoginController {
 			Model model 
 			) 
 	{
+		
 		if (session.getAttribute("admin")!=null) 
 			return"redirect:/adminpage";
-		if (session.getAttribute("attore")!=null) 
-			return"redirect:/riservata";
 		model.addAttribute("logError", logError!=null);
-		return "login";
+		return "loginadmin";
 	}
 	
 	@PostMapping
-	public String gestioneLogin(@RequestParam ("email") String email,
-							  @RequestParam("password") String password,
+	public String gestioneLogin(@RequestParam ("nome") String nome,
+							  @RequestParam("psw") String psw,
 							  HttpSession session,
 							  Model model) {
 		
-		if (!attoreService.controlloLogin(email, password, session)) 
-			return "redirect:/login?err";
-		return "redirect:/riservata";
+		if (!adminService.controlloLogin(nome, psw, session)) 
+			return "redirect:/loginadmin?err";
+		return "redirect:/adminpage";
 	}
-	
-	
+		
 }
 
-//CHIEDI A DAVIDE
+//CHIEDI A CHAT
 //Create a XML file tomcat-users.xml for login functionality.

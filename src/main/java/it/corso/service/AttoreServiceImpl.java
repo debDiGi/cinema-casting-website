@@ -93,8 +93,7 @@ public class AttoreServiceImpl implements AttoreService {
 
 	@Override
 	public Attore checkAttore(String email) {
-		Attore attore = attoreDao.findByEmail(email);
-			return attore;
+			return attoreDao.findByEmail(email);
 	}
 
 	@Override

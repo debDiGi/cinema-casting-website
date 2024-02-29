@@ -20,5 +20,5 @@ public interface AttoreService {
 	public boolean controlloLogin(String email, String password, HttpSession session);
 	public void newRitratto(int id, MultipartFile newRitr,HttpSession session);
 	public void newFoto(int id, MultipartFile newFoto,HttpSession session);
-	void cancellaAccount(Attore attore);
+	public void cancellaAccount(Attore attore);
 }

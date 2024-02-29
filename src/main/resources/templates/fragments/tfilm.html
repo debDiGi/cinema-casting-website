@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+	<body>
+	    <div class="container mt-3" th:fragment="tfilm">
+	        <h2>Gestione film</h2>
+	        <p>Qui puoi visualizzare tutti i film presenti nel tuo listino. Puoi modificarli o eliminarli. Usa la barra di ricerca qui sotto per filtrare i film nella tabella.</p>  
+	        <div class="d-flex">
+            <img src="../image/search.svg" alt="cerca" style="min-width:20px; max-width:20px; margin-right:15px;">
+            <input class="form-control" id="myInputf" type="text" placeholder="Cerca.." oninput="filterTable()">
+        </div>
+	        <br>
+	
+	        <table class="table table-responsive table-striped">
+	        <thead>
+	            <tr class="table-primary">
+	                <th scope="col"><input type="checkbox" id="selezionaTuttof" ></th>
+	                <th>Titolo</th>	                
+	                <th >Data di uscita</th>
+	                <th>Genere</th>
+	                <th>Selezioni Casting</th>
+	                <th></th>
+	                <th></th>
+	            </tr>
+	        </thead>
+	        <tbody id="myTablef">
+	            <tr  th:each="f : ${films}">
+	                <td><input type="checkbox" name="selezionaRiga"></td>
+	                <td  th:text="${f.titolo}"></td>
+	                <td  th:text="${f.dataUscita}"></td>
+	                <td th:text="${f.genere}"></td>
+	                <td th:if="${f.open}">Aperte</td>
+	                <td th:if="${!f.open}">Chiuse</td>
+	                <td><a th:href="@{/editfilm(id=${f.id})}">Modifica</a></td>
+	                <td>               
+					    <a th:href="@{/adminpage/cancellafilm(id=${f.id})}" class="text-danger">
+					    	Elimina					    
+					        <img src="../image/trash.svg" alt="Elimina" style="min-width:15px">
+					    </a>
+					</td>
+	            </tr>      
+	        </tbody>
+	        </table>
+
+	    </div>
+	
+	</body>
+	</html>

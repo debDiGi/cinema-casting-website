@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="container mt-3" th:fragment="tcandidature">
+        <h2>Gestisci le candidature ai casting</h2>
+        <p>Qui puoi rispondere alle candidature. Usa la barra di ricerca qui sotto per aiutarti nella gestione filtrando le candidature. Puoi filtarle per attore, film, stato o email.</p>  
+        <div class="d-flex">
+            <img src="../image/search.svg" alt="cerca" style="min-width:20px; max-width:20px; margin-right:15px;">
+            <input class="form-control" id="myInput" type="text" placeholder="Cerca.." oninput="filterTable()">
+        </div>
+        <br>
+  
+        <table class="table table-responsive">
+            <thead>
+                <tr>
+                    <th scope="col"><input type="checkbox" id="selezionaTutto"></th>
+                    <th>Id</th>
+                    <th>Film</th>
+                    <th>Attore</th>
+                    <th>Email</th>
+                    <th>Stato</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="myTable">
+                <tr th:each="c : ${candidature}">
+                    <td><input type="checkbox" name="selezionaRiga"></td>
+                    <td th:text="${c.id}"></td>
+                    <td th:text="${c.film.titolo}"></td>
+                    <td th:text="${c.attore.nome} + ' ' + ${c.attore.cognome}" ></td>
+                    <td th:text="${c.attore.email}"></td>
+                    <td>
+					    <p th:if="${c.stato == 'Accettata'}"  class="btnc btn-verde">Accettata</p>
+					    <p th:if="${c.stato == 'Inviata'}" class="btnc btn-giallo">Inviata</p>
+					    <p th:if="${c.stato == 'Respinta'}" class="btnc btn-rosso">Respinta</p>
+					    <p th:if="${c.stato == 'Eliminata'}" class="btnc btn-grigio">Eliminata</p>				    
+					</td>
+
+                    <td><a th:href="@{adminpage/accetta(id=${c.id})}" class="text-success">Accetta</a></td>
+                    <td><a th:href="@{adminpage/respingi(id=${c.id})}" class="text-danger" href="">Respingi</a></td>
+                    <td>               
+					    <a th:href="@{adminpage/canccandidatura(id=${c.id})}" class="text-danger">					    
+					        <img src="../image/trash.svg" alt="Elimina" style="min-width:15px">
+					    </a>
+					</td>
+                </tr>      
+            </tbody>
+        </table>   
+    </div>
+</body>
+</html>

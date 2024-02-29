@@ -14,6 +14,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -36,6 +37,18 @@ public class Film {
 	private String titolo;
 	@Column(name="open")
 	private boolean open;
+	
+
+    @OneToMany(mappedBy = "film")
+    private List<Candidatura> candidature;
+	
+	public List<Candidatura> getCandidature() {
+		return candidature;
+	}
+	public void setCandidature(List<Candidatura> candidature) {
+		this.candidature = candidature;
+	}
+	
 	@ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
 	@JoinTable
 	(
@@ -98,6 +111,5 @@ public class Film {
 	public void setOpen(boolean open) {
 		this.open = open;
 	}
-	
 	
 }

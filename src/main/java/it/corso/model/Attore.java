@@ -14,6 +14,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -103,5 +104,14 @@ public class Attore {
 		this.foto = foto;
 	}
 	
+	public List<Candidatura> getCandidature() {
+		return candidature;
+	}
+	public void setCandidature(List<Candidatura> candidature) {
+		this.candidature = candidature;
+	}
+
+	@OneToMany(mappedBy = "attore")
+    private List<Candidatura> candidature;
 	
 }

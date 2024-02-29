@@ -23,7 +23,7 @@
         <p th:text="'Data di uscita: ' + ${#temporals.format(film.dataUscita, 'dd-MM-yyyy')}"></p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
         <a th:if="${!film.open}" th:href="@{'https://www.youtube.com/watch?v=' + ${film.trailer}}" class="btn btn-dark btn-lg px-4 me-md-2 fw-bold">Guarda il trailer</a>
-        <a th:if="${film.open}" th:href="@{/login}" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold btn-iscriviti">Iscriviti ora!</a>
+        <a th:if="${film.open}" th:href="@{/dettagliofilm/candidati(id=${film.id})}" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold btn-iscriviti">Iscriviti ora!</a>
         </div>
       </div>
       <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">

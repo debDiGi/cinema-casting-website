@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Inserisci un nuovo film</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+	</head>
+	<body>
+
+	<div class="container d-flex justify-content-center align-items-center vh-100">
+        <form th:object="${film}" method="post" enctype="multipart/form-data" class="p-4 border rounded">
+            <div th:if="${titoloErr}" class="alert alert-warning" role="alert">
+                Esiste già un Film con lo stesso titolo. Elimina o modifica il Film esistente.
+            </div>
+            <div th:if="${incompleto}" class="alert alert-warning" role="alert">
+                Inserisci tutti i dati obbligatori (*).
+            </div>
+            <!-- Campi del form -->
+            <div class="mb-3">
+                <label>Titolo: <span style="color:red">*</span></label>
+                <input type="text" class="form-control" th:field="*{titolo}" placeholder="Inserire titolo.." required>
+            </div>
+            <div class="mb-3">
+                <label>Data di Uscita: <span style="color:red">*</span></label>
+                <input type="date" class="form-control" th:field="*{dataUscita}" placeholder="Inserire data di uscita..." required>
+            </div>
+            <div class="mb-3">
+                <label>Genere:</label>
+                <select class="form-select" th:field="*{genere}" required>
+                    <option value="azione" th:selected="${film.genere == 'azione'}">Azione</option>
+                    <option value="commedia" th:selected="${film.genere == 'commedia'}">Commedia</option>
+                    <option value="drammatico" th:selected="${film.genere == 'drammatico'}">Drammatico</option>
+                    <!-- Altre opzioni -->
+                </select>
+            </div>
+            <div class="mb-3">
+                <label>Trama: <span style="color:red">*</span></label>
+                <input type="text" class="form-control" th:field="*{trama}" placeholder="Inserisci trama..." required>
+            </div>
+            <div class="mb-3">
+                <label>Url Trailer: <span style="color:red">*</span></label>
+                <input type="text" class="form-control" th:field="*{trailer}" placeholder="Inserire url trailer..." required>
+            </div>
+            <div class="mb-3">
+                <label>Stato del Cast:</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="open" name="open" th:field="*{open}" value="true">
+                    <label class="form-check-label" for="open">Aperto</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="closed" name="open" th:field="*{open}" value="false">
+                    <label class="form-check-label" for="closed">Chiuso</label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="locandina" class="form-label" th:text="'Carica una locandina:'"></label>
+                <input type="file" id="locandina" name="locandina" accept="image/*" class="form-control" th:field="*{locandina}" required>
+            </div>
+
+            <div class="mb-3">
+                <input type="submit" class="btn btn-primary" value="Salva film">
+                <div>
+                    <a th:href="@{/adminpage}" th:text="'Torna Alla Dashboard'" style="color:#0d6efd;"></a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

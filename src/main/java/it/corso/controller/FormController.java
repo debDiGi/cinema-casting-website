@@ -48,7 +48,7 @@ public class FormController {
 		    @RequestParam(name="foto",required = false) MultipartFile foto
 		    ) {
 		
-		//msg login err
+		
 		if (attoreService.checkAttore(email)!=null) 
 		{			
 			return "redirect:/registrazione?err"; // aggiungo '?err' per il redirect in caso di email esistente, così nel getPage non è null e si attiva th:if

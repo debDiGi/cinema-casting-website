@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import it.corso.model.Admin;
 import it.corso.model.Attore;
 import it.corso.model.Film;
 import it.corso.service.CandidaturaService;
@@ -29,11 +30,21 @@ public class DettaglioFilmController {
 	@GetMapping
 	public String getPage(
 			@RequestParam ("id")int id,
-			Model model) {
+			Model model, 
+			HttpSession session) {
 		Map<String, List<Film>> filmsMap = filmService.getFilmsByGenere(filmService.getFilms());
-		
+		Attore attore = (Attore) session.getAttribute("attore");
+		boolean attoreLogged = attore!=null;
+		Admin admin = (Admin) session.getAttribute("admin");
+		boolean adminLogged = admin !=null;
+		Film film = filmService.getFilmById(id);
+		model.addAttribute("isCandidato", candidaturaService.getCandidaturaByAttoreAndFilm(attore, film));
+		model.addAttribute("admin", admin);
+		model.addAttribute("attore", attore);
+		model.addAttribute("attoreLogged", attoreLogged);
+		model.addAttribute("adminLogged", adminLogged);
 		model.addAttribute("filmsMap", filmsMap);
-		model.addAttribute("film",filmService.getFilmById(id));
+		model.addAttribute("film",film);
 		model.addAttribute("cast", filmService.getCast(id));
 		
 		return "dettagliofilm";
@@ -46,9 +57,11 @@ public class DettaglioFilmController {
 		
 		Film film = filmService.getFilmById(id);
 		Attore attore = (Attore) session.getAttribute("attore");
+		
+		
 		if (attore!=null) {
 			candidaturaService.creaCandidatura(attore, film);
-			return "redirect:/";
+			return "redirect:/dettagliofilm";
 		}else {
 			return "redirect:/registrazione";
 		}

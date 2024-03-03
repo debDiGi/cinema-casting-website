@@ -21,4 +21,5 @@ public interface AttoreService {
 	public void newRitratto(int id, MultipartFile newRitr,HttpSession session);
 	public void newFoto(int id, MultipartFile newFoto,HttpSession session);
 	public void cancellaAccount(Attore attore);
+	public void modificaAttore(int id, String nome, String cognome, LocalDate dataNascita, String password, String email );
 }

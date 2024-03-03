@@ -1,6 +1,9 @@
 package it.corso.service;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import it.corso.dao.CandidaturaDao;
@@ -18,6 +21,7 @@ public class CandidaturaServiceImpl implements CandidaturaService {
 	public void creaCandidatura(Attore attore, Film film) {
 		Candidatura candidatura = new Candidatura();
 		candidatura.setStato("Inviata");
+		candidatura.setDataInvio(LocalDate.now());
 		candidatura.setAttore(attore);
 		candidatura.setFilm(film);
 		
@@ -34,6 +38,7 @@ public class CandidaturaServiceImpl implements CandidaturaService {
 	public void eliminaCandidatura(int id) {
 		Candidatura candidatura = candidaturaDao.findById(id).get();
 		candidatura.setStato("Eliminata");
+		candidatura.setDataEsito(LocalDate.now());
 		candidaturaDao.save(candidatura);
 	}
 
@@ -52,6 +57,7 @@ public class CandidaturaServiceImpl implements CandidaturaService {
 	public void respingiCandidatura(int id) {
 		Candidatura candidatura = candidaturaDao.findById(id).get();
 		candidatura.setStato("Respinta");
+		candidatura.setDataEsito(LocalDate.now());
 		candidaturaDao.save(candidatura);
 		
 	}
@@ -60,8 +66,22 @@ public class CandidaturaServiceImpl implements CandidaturaService {
 	public void accettaCandidatura(int id) {
 		Candidatura candidatura = candidaturaDao.findById(id).get();
 		candidatura.setStato("Accettata");
+		candidatura.setDataEsito(LocalDate.now());
 		candidaturaDao.save(candidatura);
 		
+	}
+
+	
+	@Override
+	public boolean getCandidaturaByAttoreAndFilm(Attore attore, Film film) {
+	    List<Candidatura> candidature = candidaturaDao.findByAttoreAndFilm(attore, film);
+
+	    if (candidature != null && !candidature.isEmpty()) {
+	        return candidature.stream()
+	                .anyMatch(candidatura -> !"eliminata".equalsIgnoreCase(candidatura.getStato()));
+	    }
+
+	    return false;
 	}
 
 }

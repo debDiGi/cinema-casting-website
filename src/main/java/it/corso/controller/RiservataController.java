@@ -1,6 +1,5 @@
 package it.corso.controller;
 
-
 import java.util.List;
 import java.util.Map;
 
@@ -20,8 +19,6 @@ import it.corso.service.CandidaturaService;
 import it.corso.service.FilmService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.web.bind.annotation.PostMapping;
-
-
 
 
 @Controller
@@ -44,10 +41,14 @@ public class RiservataController
 		Map<String, List<Film>> filmsMap = filmService.getFilmsByGenere(filmService.getFilms());
 		Attore attore = (Attore) session.getAttribute("attore");
 		List<Candidatura> myCandidature = candidaturaService.getCandidatureAttore(attore);
-		
+		boolean attoreLogged = attore!=null;
+		model.addAttribute("attoreLogged", attoreLogged);
 		model.addAttribute("filmsMap", filmsMap);
 		model.addAttribute("attore", attore);
 		model.addAttribute("myCandidature", myCandidature);
+		if(!attoreLogged) {
+			return "redirect:/login";
+		}
 		return "riservata";
 	}
 	
@@ -82,7 +83,5 @@ public class RiservataController
 			session.invalidate();
 			return "redirect:/";
 	}
-	
-	
-	
+		
 }

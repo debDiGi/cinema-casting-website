@@ -10,7 +10,7 @@
 	        <p>Qui puoi visualizzare tutti i film presenti nel tuo listino. Puoi modificarli o eliminarli. Usa la barra di ricerca qui sotto per filtrare i film nella tabella.</p>  
 	        <div class="d-flex">
             <img src="../image/search.svg" alt="cerca" style="min-width:20px; max-width:20px; margin-right:15px;">
-            <input class="form-control" id="myInputf" type="text" placeholder="Cerca.." oninput="filterTable()">
+            <input class="form-control" id="myInputf" type="text" placeholder="Cerca.." oninput="filterTableF()">
         </div>
 	        <br>
 	
@@ -29,8 +29,8 @@
 	        <tbody id="myTablef">
 	            <tr  th:each="f : ${films}">
 	                <td><input type="checkbox" name="selezionaRiga"></td>
-	                <td  th:text="${f.titolo}"></td>
-	                <td  th:text="${f.dataUscita}"></td>
+	                <td th:text="${f.titolo}"></td>
+	                <td th:text="${#temporals.format(f.dataUscita, 'dd/MM/yyyy')}"></td>
 	                <td th:text="${f.genere}"></td>
 	                <td th:if="${f.open}">Aperte</td>
 	                <td th:if="${!f.open}">Chiuse</td>

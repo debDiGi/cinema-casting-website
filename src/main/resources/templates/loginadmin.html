@@ -8,16 +8,17 @@
  		 <link href="../css/style.css" rel="stylesheet">
 		<title>Login admin</title>
 	</head>
-	<body>
+	<body class="adminbg">
 		
-		<div class="container d-flex align-items-center vh-100">
-		<h1>Accedi all'<br>area amministratori</h1>
-			<form class="col-md-4 mx-auto" method="post">
-				<div th:if="${logError}" class="alert alert-warning" role="alert">
+		<div class="container d-flex align-items-center justify-content-center vh-100">
+		
+			<form class="col-md-5 mb-2 px-5 py-5 rounded-4 boxform" method="post">
+				
+			    <div class="form-group mb-2">
+			    	<h1>Accedi come amministratore</h1>
+			    	<div th:if="${logError}" class="alert alert-warning" role="alert">
    					Username o password errati. Riprova.
 				</div>
-			    <div class="form-group">
-			    	<h1>Welcome back!</h1>
 			      <label for="exampleInputEmail1">Username</label>
 			      <input type="text" name="nome" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
 			    </div>
@@ -25,7 +26,7 @@
 				    <label for="exampleInputPassword1">Password</label>
 				    <input type="password" name="psw" class="form-control" id="exampleInputPassword1" placeholder="Password">
 			    </div>
-			    <button type="submit" class="btn btn-primary">Accedi</button>
+			    <button type="submit" class="btn btn-primary my-4 w-100">Accedi</button>
 				<div>
 					<a th:href="@{/}" th:text="'Torna Alla Home'" style="color:#0d6efd;"></a>
 				</div>

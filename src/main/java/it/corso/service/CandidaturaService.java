@@ -14,5 +14,6 @@ public interface CandidaturaService {
 	public void accettaCandidatura(int id);
 	List<Candidatura> getCandidatureAttore(Attore attore);
 	List<Candidatura> getCandidature();
+	boolean getCandidaturaByAttoreAndFilm(Attore attore, Film film);
 	
 }

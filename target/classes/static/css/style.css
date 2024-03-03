@@ -1,11 +1,10 @@
 body {
 	background-color: white;
-	padding-top:50px;
+	font-family: Helvetica, sans serif;
 	overflow-x: hidden;
-
 }
 .loginbg{
-    background-image: url('https://images.unsplash.com/photo-1604076850742-4c7221f3101b?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); 
+    background-image: url('../image/bg.jpg'); 
     background-size: fit;
     background-position: center;
     height: 100vh;
@@ -16,15 +15,52 @@ body {
     
 }
 
-form{
-	color:black
+.textform{
+	color:white;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);	
 	
+}
+.crea-title{
+	font-weight: bold;
+	text-align:center;
+	margin-top: 0.5em;
+	margin-bottom:1em;
+}
+.btnform{
+	color:white; 
+	font-weight:bold;
+	width:100%;
+}	
+.btnform2{
+	font-weight:bold;
+	width:100%;
+}
+.btnform2:hover{
+	font-weight:bold;
+	width:100%;
+}
+
+form{
+	color:black;
 }
 
 .titolologin{
 	width:15em;
 	height:3em; 
 	margin-left:2em;
+	
+}
+.adminbg{
+	background-color: #4c6bba;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.boxform{
+	background-color: rgba(255, 255, 255, 0.7);
 	
 }
 
@@ -40,6 +76,7 @@ form{
 
 .nav-link {
 	color: black;
+	font-size:1.2rem;
 }
 
 .nav-link:hover {
@@ -59,7 +96,7 @@ footer {
 }
 .user-container {
      text-align: center;
-     margin-top: 50px;
+	margin-top:10em;
  }
  
 .profile-image {
@@ -67,7 +104,6 @@ footer {
      height: 150px;
      border-radius: 50%;
      object-fit: cover;
-     margin-top: 20px;
  }
  
 .greetings {
@@ -76,12 +112,12 @@ footer {
  }
  
 .reserved-area {
-     margin-top: 10px;
+     margin-top: 1em;
      font-size: 18px;
  }
 .user-details {
      text-align: left;
-     margin-top: 30px;
+     margin-top: 5em;
  }
  
 .details-card {
@@ -112,7 +148,23 @@ footer {
     margin-top: 10px; /* Margine superiore per allineare i bottoni */
 }
 
+.img-genere-card{
+	width: 300px;
+    height: 100%; /* Altezza fissa dell'immagine */
+    object-fit: cover;
+}
 
+.img-card{
+	width: 100%;
+    height: 400px; /* Altezza fissa dell'immagine */
+    object-fit: cover;
+}
+
+.img-carousel{
+
+    height: 600px; /* Altezza fissa dell'immagine */
+    object-fit: cover;
+}
 .custom-locandina {
     width: 100%;
     height: 300px; /* Altezza fissa dell'immagine */
@@ -147,6 +199,4 @@ footer {
 	text-decoration: underline;
 }
 
-#carouselExample{
-	height:600px
-}
+

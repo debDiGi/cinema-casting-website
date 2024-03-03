@@ -22,7 +22,9 @@
                     <th>Film</th>
                     <th>Attore</th>
                     <th>Email</th>
+                    <th>Data iscrizione</th>
                     <th>Stato</th>
+                    <th>Data Esito</th>
                     <th></th>
                     <th></th>
                     <th></th>
@@ -35,13 +37,14 @@
                     <td th:text="${c.film.titolo}"></td>
                     <td th:text="${c.attore.nome} + ' ' + ${c.attore.cognome}" ></td>
                     <td th:text="${c.attore.email}"></td>
+                    <td th:text="${#temporals.format(c.dataInvio, 'dd/MM/yyyy')}"></td>
                     <td>
 					    <p th:if="${c.stato == 'Accettata'}"  class="btnc btn-verde">Accettata</p>
 					    <p th:if="${c.stato == 'Inviata'}" class="btnc btn-giallo">Inviata</p>
 					    <p th:if="${c.stato == 'Respinta'}" class="btnc btn-rosso">Respinta</p>
 					    <p th:if="${c.stato == 'Eliminata'}" class="btnc btn-grigio">Eliminata</p>				    
 					</td>
-
+					<td th:text="${#temporals.format(c.dataEsito, 'dd/MM/yyyy')}"></td>
                     <td><a th:href="@{adminpage/accetta(id=${c.id})}" class="text-success">Accetta</a></td>
                     <td><a th:href="@{adminpage/respingi(id=${c.id})}" class="text-danger" href="">Respingi</a></td>
                     <td>               

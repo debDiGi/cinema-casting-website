@@ -20,16 +20,24 @@
       	<h1 th:if="${!film.open}" class="mb-4">Scopri il nostro Team nel Cast</h1>
         <h1 class="display-4 fw-bold lh-1" th:text="${film.titolo}"></h1>
         <p class="lead" th:text="${film.trama}"></p>
-        <p th:text="'Data di uscita: ' + ${#temporals.format(film.dataUscita, 'dd-MM-yyyy')}"></p>
+        <p th:text="'Data di uscita: ' + ${#temporals.format(film.dataUscita, 'dd/MM/yyyy')}"></p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
         <a th:if="${!film.open}" th:href="@{'https://www.youtube.com/watch?v=' + ${film.trailer}}" class="btn btn-dark btn-lg px-4 me-md-2 fw-bold">Guarda il trailer</a>
-        <a th:if="${film.open}" th:href="@{/dettagliofilm/candidati(id=${film.id})}" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold btn-iscriviti">Iscriviti ora!</a>
+        <a 
+        th:if="${film.open and !adminLogged and ((!attoreLogged) or (attoreLogged and !isCandidato))}" 
+        th:href="@{/dettagliofilm/candidati(id=${film.id})}" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold btn-iscriviti">
+        Iscriviti ora!
+        </a>
+        <a th:if="${film.open and !adminLogged and attoreLogged and isCandidato}" class="btn btn-dark disabled btn-lg px-4 me-md-2 fw-bold btn-iscriviti">Sei già iscritto</a>
+        <a th:if="${film.open and adminLogged}" class="btn btn-dark disabled btn-lg px-4 me-md-2 fw-bold btn-iscriviti">Iscriviti ora!</a>
+        
         </div>
       </div>
       <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
           <img class="rounded-lg-3 hero-locandina" th:src="@{${film.locandina}}" alt="locandina">
       </div>
       
+
       	<!-- CAST -->	
 	<div class="container mb-2 mt-2">
       
@@ -41,7 +49,7 @@
         <div class="col-md-4">
           <img
             th:src="${attore.ritratto}" 
-            class="img-fluid rounded-start"
+            class="img-fluid rounded-start img-card"
           />
         </div>
         <div class="col-md-8">

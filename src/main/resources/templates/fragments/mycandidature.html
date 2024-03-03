@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="container mt-3 w-100" th:fragment="mycandidature">
+    <table class="table table-responsive mycand-table">
+       <thead>
+          <tr>
+			<th>Id</th>
+               <th>Film</th>
+               <th>Data iscrizione</th>
+               <th>Stato</th>
+               <th>Data Esito</th>
+           </tr>
+       </thead>
+       <tbody id="myTable">
+           <tr th:each="c : ${myCandidature}">
+               	<td th:text="${c.id}"></td>
+               	<td th:text="${c.film.titolo}"></td>
+               	<td th:text="${#temporals.format(c.dataInvio, 'dd/MM/yyyy')}"></td>
+               	<td>
+				    <p th:if="${c.stato == 'Accettata'}"  class="btnc btn-verde">Accettata</p>
+				    <p th:if="${c.stato == 'Inviata'}" class="btnc btn-giallo">Inviata</p>
+				    <p th:if="${c.stato == 'Respinta'}" class="btnc btn-rosso">Respinta</p>
+				    <p th:if="${c.stato == 'Eliminata'}" class="btnc btn-grigio">Eliminata</p>				    
+				</td>
+				<td th:text="${#temporals.format(c.dataEsito, 'dd/MM/yyyy')}"></td>              
+           </tr>      
+       </tbody>
+   </table>   
+   </div>
+</body>
+</html>

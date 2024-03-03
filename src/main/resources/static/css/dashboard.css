@@ -7,45 +7,51 @@ body {
     padding: 0;
     margin: 0;
 }
+.sidebarbg-riservata{
+	 background-color: #eb8d1b;
+}
+.sidebarbg-admin{
+	background-color: #4c6bba;
+}
 .sidebar {
     height: 100vh;
     width: 250px;
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #4c6bba;
     padding-top: 15px;
     color: white;
-    z-index: 1;
+    z-index: 2;
 }
 .link-group {
     padding: 15px;
     display: block;
-    margin-top: calc(50vh - 30vh); /* Regola il valore di 40px secondo le tue esigenze */
+    margin-top: calc(50vh - 30vh); 
 }
 
 .sidebar h4 {
     text-align: center;
     margin-bottom: 20px;
 }
+
 .sidebar a {
     padding: 15px;
     text-decoration: none;
     font-size: 18px;
     color: #ffffff;
-    display: block;
+    display: block;    
 }
+
+.sidebar .nav-pills .nav-link.active,
+.sidebar .nav-pills .nav-link:active,
+.sidebar .nav-pills .nav-link:focus {
+	    background-color: rgba(255, 255, 255, 0.3);
+}
+
 .sidebar a:hover {
-    text-decoration: underline;
     color: white;
+    font-size:larger;
 }
-
-.nav-item a:active {
-    text-decoration: underline;
-    color: white;
-    background-color: #4c6bba;
-}
-
 
 .content {
     margin-left: 250px;
@@ -55,7 +61,7 @@ body {
     background-color: #ffffff;
     padding: 15px;
     text-align: right;
-    z-index: 0;
+    z-index: 1;
     width: 100%;    
 }
 .home{
@@ -80,8 +86,17 @@ body {
 	background-color: white;
 	
 }
-
-
+.mycand-table{
+	display:inline-table;	
+}
+.my-dropdown-menu{
+	right: 2em;
+    left: auto;
+}
+.mod-anag-btn{
+	color:white;
+	width:20em;
+}
 .btnc {
 	padding: 0.5em;
 	width: 7em;
@@ -107,3 +122,9 @@ body {
 	color: #595959;
 	border: 2px #595959;
 }
+
+.ciao-img{
+	margin-top:3em;
+	margin-left:3em;	
+}
+

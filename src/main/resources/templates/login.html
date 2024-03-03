@@ -11,7 +11,7 @@
 	</head>
 	<body class="loginbg">
 		
-		<div class="container d-flex align-items-center rounded-4" style="margin-right:17.5em; margin-bottom:3em; background-color: rgba(255, 255, 255, 0.7); width:60em;">
+		<div class="container d-flex align-items-center rounded-4 boxform" style="width:60em;">
 			
 			<div class="container d-flex py-5 px-4 align-items-center justify-content-center rounded-4" style="width: 30em;" >
 			<div class="container" style=" width:30em;">
@@ -22,28 +22,30 @@
 	   					Email o password errati. Riprova.
 					</div>
 				    <div class="form-group">
-				    	<h2>Welcome back</h2>
+				    	<h2 style="font-weight:bold;">Welcome back</h2>
+				    	
 				      <label for="exampleInputEmail1">Email address</label>
 				      <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
 				      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 				    </div>
 				    <div class="form-group">
 					    <label for="exampleInputPassword1">Password</label>
-					    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+					    <input type="password" name="password" class="form-control mb-3" id="exampleInputPassword1" placeholder="Password">
 				    </div>
 				    <div class="form-group form-check">
 					    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-					    <label class="form-check-label" for="exampleCheck1">Remind me</label>
+					    <label class="form-check-label" for="exampleCheck1">Ricordami</label>
 				    </div>
-				    <button type="submit" class="btn btn-primary" style="color:white; font-weight:bold;">Accedi</button>
+				    <button type="submit" class="btn btn-dark mt-2 btnform">Accedi</button>
 				    
 				    <div class="row mt-auto">
-				    	<div class="col-md-8 mt-2">
-				        	Non hai ancora un account?&nbsp;<a th:href="@{/registrazione}">Sign up</a><br>
-				        	Sei un admin?&nbsp;<a th:href="@{/loginadmin}">Accedi qui</a>
+				    	<div class="col-md-10 mt-2">
+				        	<p>Non hai ancora un account?&nbsp;<a th:href="@{/registrazione}">Registrati</a><br>
+				        	Sei un admin?&nbsp;<a th:href="@{/loginadmin}">Accedi qui</a></p>
 				        </div>
 				    </div>
-					<div class="col-md-8 mt-1">
+					<div class="col-md-8">
+					
 						<a th:href="@{/}" th:text="'Torna Alla Home'" style="color:#0d6efd;"></a>
 					</div>
 				</form>

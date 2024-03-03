@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="container mt-3" th:fragment="fotos">
+		<div class="row image-box">
+            <div class="col-md-6">
+                <img th:if="${attore.ritratto!=null}" th:src="${attore.ritratto}" alt="foto primo piano" class="img-fluid custom-image">
+                <img th:if="${attore.ritratto==null}" th:src="@{../image/ritratto-blank.webp}" alt="foto primo piano" class="img-fluid custom-image">
+                <form th:object="${attore}" method="post" enctype="multipart/form-data" class="mt-3">
+		        	<label for="ritratto" th:text="'Carica un nuovo primo piano:'"></label><br>
+		        	<input type="file" id="ritratto" name="ritratto" accept="image/*" th:field="*{ritratto}" onchange="checkFile()">
+		        	<input type="submit" class="btn btn-primary" value="Carica immagine" disabled>
+		        </form>
+            </div>
+            
+            <div class="col-md-6">
+                <img th:if="${attore.foto!=null}" th:src="${attore.foto}" alt="Immagine 2" class="img-fluid custom-image">
+                <img th:if="${attore.foto==null}" th:src="@{../image/foto-blank.jpg}" alt="Immagine 2" class="img-fluid custom-image">
+                <form th:object="${attore}" method="post" enctype="multipart/form-data" class="mt-3">
+			        <label for="ritratto" th:text="'Carica un nuovo primo piano:'"></label><br>
+			        <input type="file" id="foto" name="foto" accept="image/*" th:field="*{foto}" onchange="checkFile()">
+			        <input type="submit" class="btn btn-primary" value="Carica immagine" disabled>
+		      	</form>
+            </div>
+        </div>
+	</div>
+</body>
+</html>

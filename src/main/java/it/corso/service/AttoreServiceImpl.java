@@ -133,5 +133,22 @@ public class AttoreServiceImpl implements AttoreService {
 		return attoreDao.findByNomeContainingIgnoreCaseOrCognomeContainingIgnoreCase(nomeCognome, nomeCognome);
 	}
 
+	@Override
+	public void modificaAttore(int id, String nome, String cognome, LocalDate dataNascita, String password,
+			String email) {
+		Attore attore = attoreDao.findById(id).get();
+		attore.setNome(nome);
+		attore.setCognome(cognome);
+		attore.setDataNascita(dataNascita);
+		if(password!=null) {
+			attore.setPassword(password);
+		} else {
+			attore.setPassword(attore.getPassword());
+		}
+		
+		attoreDao.save(attore);
+		
+	}
+
 	
 }

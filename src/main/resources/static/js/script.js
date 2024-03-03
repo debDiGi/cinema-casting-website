@@ -55,7 +55,7 @@ function checkFile() {
     
     //FILM
     //CERCA in tutte le colonne
-	function filterTable() {
+	function filterTableF() {
         var input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("myInputf");
         filter = input.value.toUpperCase();
@@ -94,7 +94,7 @@ function checkFile() {
     
      //attori
     //CERCA in tutte le colonne
-	function filterTable() {
+	function filterTableA() {
         var input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("myInputa");
         filter = input.value.toUpperCase();
@@ -134,7 +134,7 @@ function checkFile() {
 	
      //UTENZE
     //CERCA in tutte le colonne
-	function filterTable() {
+	function filterTableU() {
         var input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("myInputu");
         filter = input.value.toUpperCase();
@@ -170,4 +170,23 @@ function checkFile() {
             righe[i].checked = this.checked;
         }
     });
+    
 
+	       // Salva la tab attiva prima del submit
+    document.getElementById('myTabs').addEventListener('click', function (event) {
+        localStorage.setItem('activeTab', event.target.getAttribute('href'));
+    });
+
+    // Ripristina la tab attiva dopo il ricaricamento della pagina
+    window.onload = function () {
+        var activeTab = localStorage.getItem('activeTab');
+        if (activeTab) {
+            document.querySelector('[href="' + activeTab + '"]').click();
+        }
+    };
+
+    // Rimuovi l'informazione quando l'utente lascia la pagina delle tabs
+    window.addEventListener('beforeunload', function () {
+        localStorage.removeItem('activeTab');
+    });
+	

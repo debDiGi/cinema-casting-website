@@ -5,17 +5,19 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
     	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    	
+    	<link href="../css/style.css" rel="stylesheet">
 	</head>
-	<body>
+	<body class="loginbg">
 
-	<div class="container d-flex justify-content-center align-items-center mt-2">
-		<div class="container mr-1">
-			<h1>Unisciti alla<br>nostra comunità di talenti! </h1>
-			<h4> Registra il tuo profilo e inizia a far brillare <br> la tua carriera nel mondo dello spettacolo.</h4>
+	<div class="container d-flex justify-content-center align-items-center">
+		<div class="container textform">
+			<h1 style="font-size: 4.5rem; font-weight:bold;">Unisciti <br> al nostro team </h1>
+			<h4 style="font-weight:bold;"> Registra il tuo profilo e inizia a far brillare <br> la tua carriera nel mondo dello spettacolo.</h4>
 		</div>
-		<div class="container d-flex" style="margin-top:7em">
+		<div class="container d-flex">
 		
-		 <form th:object="${attore}" method="post" enctype="multipart/form-data" class="p-4 border rounded bg-light">
+		 <form th:object="${attore}" method="post" enctype="multipart/form-data" class="p-4 border rounded-4 boxform " style="width:40em;">
 		    <div th:if="${emailErr}" class="alert alert-warning" role="alert">
 		        Esiste già un profilo associato a questa email.
 		    </div>
@@ -25,7 +27,7 @@
 		    <div th:if="${incompleto}" class="alert alert-warning" role="alert">
 		        Inserisci tutti i dati obbligatori (*).
 		    </div>
-		
+			<h2 class="crea-title">Crea il tuo Account</h2>
 		    <div class="row">
 		        <div class="col-md-6">
 		            <div class="mb-3">
@@ -80,11 +82,11 @@
     </div>
 
     <div class="mb-3">
-        <input type="submit" class="btn btn-primary" value="Registrati">
+        <input type="submit" class="btn btn-dark btnform" value="Registrati">
 
         <div class="row mt-auto">
             <div class="col-md-6">
-                <div>Hai già un tuo account?&nbsp;<a th:href="@{/login}">Log In</a></div>
+                <div class="my-2">Hai già un tuo account?&nbsp;<a th:href="@{/login}">Log In</a></div>
                 <a th:href="@{/}" th:text="'Torna Alla Home'" style="color:#0d6efd;"></a>
             </div>
         </div>

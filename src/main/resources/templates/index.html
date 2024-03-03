@@ -25,8 +25,10 @@
 	                <h1 class="display-5 fw-bold lh-1 mb-3">Creiamo storie indimenticabili, un volto alla volta</h1>
 	                <p class="lead">Benvenuti nell'arte del casting e nella magia della produzione cinematografica. Dai un'occhiata alle nostre ultime produzioni! Siamo sempre in cerca di talenti come il tuo!!! Avrai possibilità di formati e lavorare con grandi nomi del settore. Che aspetti?</p>
 	                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-	                    <a class="btn btn-dark btn-lg px-4 me-md-4 " role="button" th:href="@{/registrazione}">Registrati Subito</a>
-	                   
+	                    <a th:if="${!adminLogged and !attoreLogged}" class="btn btn-dark btn-lg px-4 me-md-4 " role="button" th:href="@{/registrazione}">Registrati Subito</a>
+	                    <a th:if="${adminLogged}" class="btn btn-dark btn-lg px-4 me-md-4 disabled" role="button" th:href="@{/registrazione}">Registrati Subito</a>
+	                    <a th:if="${attoreLogged}" class="btn btn-dark btn-lg px-4 me-md-4" role="button" th:href="@{/riservata#mycand}">Vai alle candidature</a>
+	                   	
 	                </div>
 	            </div>
 	        </div>

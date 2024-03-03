@@ -11,7 +11,7 @@
 	        <p>Qui puoi visualizzare tutti gli attori iscritti alla tua agency. Puoi eliminare un profilo o usare la barra di ricerca qui sotto per filtrare i profili attore nella tabella.</p>  
 	        <div class="d-flex">
             	<img src="../image/search.svg" alt="cerca" style="min-width:20px; max-width:20px; margin-right:15px;">
-            	<input class="form-control" id="myInputa" type="text" placeholder="Cerca.." oninput="filterTable()">
+            	<input class="form-control" id="myInputa" type="text" placeholder="Cerca.." oninput="filterTableA()">
         	</div>
 	        <br>
 	
@@ -29,7 +29,7 @@
 	            <tr  th:each="a : ${attori}">
 	                <td><input type="checkbox" name="selezionaRiga"></td>
 	                <td  th:text="${a.nome} + ' ' + ${a.cognome}"></td>
-	                <td  th:text="${#temporals.format(a.dataNascita, 'dd-MM-yyyy')}"></td>
+	                <td  th:text="${#temporals.format(a.dataNascita, 'dd/MM/yyyy')}"></td>
 	                <td  th:text="${a.email}"></td>
 	                <td>               
 					    <a th:href="@{adminpage/cancellaattore(id=${a.id})}" class="text-danger">

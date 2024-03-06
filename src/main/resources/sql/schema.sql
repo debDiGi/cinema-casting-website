@@ -23,6 +23,18 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(15) NOT NULL,
+  `psw` varchar(15) NOT NULL,
+  `livello` int(11) NOT NULL DEFAULT '2'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+--
 -- Table structure for table `attore`
 --
 
@@ -37,6 +49,19 @@ CREATE TABLE `attore` (
   `foto` longtext
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+
+--
+-- Table structure for table `candidatura`
+--
+
+CREATE TABLE `candidatura` (
+  `id` int(11) NOT NULL,
+  `stato` varchar(25) NOT NULL DEFAULT 'inviata',
+  `data_invio` date NOT NULL,
+  `data_esito` date DEFAULT NULL,
+  `id_attore` int(11) NOT NULL,
+  `id_film` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 --
@@ -55,7 +80,6 @@ CREATE TABLE `film` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
-
 --
 -- Table structure for table `film_attore`
 --
@@ -71,10 +95,24 @@ CREATE TABLE `film_attore` (
 --
 
 --
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `attore`
 --
 ALTER TABLE `attore`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `candidatura`
+--
+ALTER TABLE `candidatura`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `candidatura_ibfk_1` (`id_attore`),
+  ADD KEY `candidatura_ibfk_2` (`id_film`);
 
 --
 -- Indexes for table `film`
@@ -94,10 +132,20 @@ ALTER TABLE `film_attore`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
 -- AUTO_INCREMENT for table `attore`
 --
 ALTER TABLE `attore`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+--
+-- AUTO_INCREMENT for table `candidatura`
+--
+ALTER TABLE `candidatura`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `film`
 --
@@ -108,8 +156,19 @@ ALTER TABLE `film`
 --
 
 --
+-- Constraints for table `candidatura`
+--
+ALTER TABLE `candidatura`
+  ADD CONSTRAINT `candidatura_ibfk_1` FOREIGN KEY (`id_attore`) REFERENCES `attore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `candidatura_ibfk_2` FOREIGN KEY (`id_film`) REFERENCES `film` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `film_attore`
 --
 ALTER TABLE `film_attore`
   ADD CONSTRAINT `attore` FOREIGN KEY (`id_attore`) REFERENCES `attore` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `film` FOREIGN KEY (`id_film`) REFERENCES `film` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

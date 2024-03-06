@@ -1,6 +1,7 @@
 package it.corso.service;
 
 import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -44,13 +45,21 @@ public class CandidaturaServiceImpl implements CandidaturaService {
 
 	@Override
 	public List<Candidatura> getCandidatureAttore(Attore attore) {	
-		return candidaturaDao.findByAttore(attore);
+		List<Candidatura> candidature = candidaturaDao.findByAttore(attore);
+		List<Candidatura> candidatureOrdinate = candidature.stream()
+		        .sorted(Comparator.comparingLong(Candidatura::getId).reversed())
+		        .collect(Collectors.toList());
+		return candidatureOrdinate;
 	}
 	
 	//per admin
 	@Override
 	public List<Candidatura> getCandidature() {	
-		return (List<Candidatura>) candidaturaDao.findAll();
+		List<Candidatura> candidature = (List<Candidatura>) candidaturaDao.findAll();
+		List<Candidatura> candidatureOrdinate = candidature.stream()
+		        .sorted(Comparator.comparingLong(Candidatura::getId).reversed())
+		        .collect(Collectors.toList());
+		return candidatureOrdinate;
 	}
 
 	@Override

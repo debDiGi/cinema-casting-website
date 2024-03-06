@@ -28,8 +28,9 @@
                 <nav class="navbar">
                     <a class="home" th:href="@{/}">Home</a>
                     <p th:text="'ADMIN: ' + ${admin.nome} + ' - Livello autorizzazione:' + ${admin.livello}" class="nomeadmin"></p>
-                    <img src="../image/user.svg" alt="User Image" width="40" height="40" data-bs-toggle="dropdown" aria-expanded="false">
-                    <ul class="dropdown-menu dropdown-menu-end">
+                    <img th:if="${!adminLogged}" th:src="@{../image/user.svg}" alt="User Image" style="width:40px; height:40px; margin-right:1.5em" data-bs-toggle="dropdown" aria-expanded="false" class="profile-image dropdown-toggle">
+    				<img th:if="${adminLogged}" th:src="@{../image/admin.svg}" alt="admin Image" style="width:40px; height:40px; margin-right:1.5em" data-bs-toggle="dropdown" aria-expanded="false" class="profile-image dropdown-toggle">
+    				<ul class="dropdown-menu dropdown-menu-end">
                         <li><a th:href="@{adminpage/logout}" class="dropdown-item">Logout</a></li>
                     </ul>
                 </nav>
@@ -54,8 +55,8 @@
         </div>
 		
     </div>
-    
-
+	
+	
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="../js/script.js"></script>	

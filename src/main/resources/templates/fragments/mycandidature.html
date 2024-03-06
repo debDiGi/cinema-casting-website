@@ -6,6 +6,16 @@
 </head>
 <body>
     <div class="container mt-3 w-100" th:fragment="mycandidature">
+	<div style="margin-left: 100vh">
+	    <select class="filtro-stato" id="filterDropdownMycandidature" onchange="filterTableMycandidature(this.value)">
+	        <option value="Tutti">Filtra per stato</option>
+	        <option value="Inviata">Inviata</option>
+	        <option value="Accettata">Accettata</option>
+	        <option value="Respinta">Respinta</option>
+	        <option value="Eliminata">Eliminata</option>
+	    </select>
+	</div>
+	
     <table class="table table-responsive mycand-table">
        <thead>
           <tr>

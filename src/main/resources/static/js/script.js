@@ -51,6 +51,56 @@ function checkFile2() {
             }
         }
     }
+    
+    //dropdown filter stato
+
+    function filterTable(selectedStato) {
+        var table, rows, statoColumn, statoText;
+
+        table = document.getElementById("myTable");
+        rows = table.getElementsByTagName("tr");
+
+        // Loop through all table rows
+        for (var i = 0; i < rows.length; i++) {
+            // Get the stato column cell of the current row
+            statoColumn = rows[i].getElementsByTagName("td")[6]; // 6 è l'indice della colonna "Stato"
+            if (statoColumn) {
+                statoText = statoColumn.textContent || statoColumn.innerText;
+
+                // Check if the selectedStato is "Tutti" or matches the stato of the current row
+                if (selectedStato === "Tutti" || statoText.trim() === selectedStato) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+    }
+    
+//DROPDOWN FILTER STATO mycand
+	function filterTableMycandidature(selectedStato) {
+	        var table, rows, statoColumn, statoText;
+	
+	        table = document.querySelector(".mycand-table");
+	        rows = table.getElementsByTagName("tr");
+	
+	        // Loop through all table rows
+	        for (var i = 0; i < rows.length; i++) {
+	            // Get the stato column cell of the current row
+	            statoColumn = rows[i].getElementsByTagName("td")[3]; // 3 è l'indice della colonna "Stato"
+	            if (statoColumn) {
+	                statoText = statoColumn.textContent || statoColumn.innerText;
+	
+	                // Check if the selectedStato is "Tutti" or matches the stato of the current row
+	                if (selectedStato === "Tutti" || statoText.trim() === selectedStato) {
+	                    rows[i].style.display = "";
+	                } else {
+	                    rows[i].style.display = "none";
+	                }
+	            }
+	        }
+	    }
+
         
         //SELEZIONA TUTTO
 	document.getElementById('selezionaTutto').addEventListener('change', function () {

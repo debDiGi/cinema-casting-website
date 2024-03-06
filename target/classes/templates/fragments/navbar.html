@@ -39,7 +39,9 @@
         <button class="btn btn-outline-dark" type="submit">Cerca</button>
     </form>
         <img th:if="${attoreLogged}" th:src="${attore.ritratto}" alt="User Image" data-bs-toggle="dropdown" aria-expanded="false" class="profile-image dropdown-toggle" style="width:40px; height:40px; margin-right:1.5em">
-		<img th:if="${!attoreLogged}" th:src="@{../image/user.svg}" alt="User Image" style="width:40px; height:40px; margin-right:1.5em" data-bs-toggle="dropdown" aria-expanded="false" class="profile-image dropdown-toggle">
+		<img th:if="${!attoreLogged and !adminLogged}" th:src="@{../image/user.svg}" alt="User Image" style="width:40px; height:40px; margin-right:1.5em" data-bs-toggle="dropdown" aria-expanded="false" class="profile-image dropdown-toggle">
+    	<img th:if="${adminLogged}" th:src="@{../image/admin.svg}" alt="admin Image" style="width:40px; height:40px; margin-right:1.5em" data-bs-toggle="dropdown" aria-expanded="false" class="profile-image dropdown-toggle">
+    	
     <ul class="dropdown-menu dropdown-menu-end">
     	<li>
     	<a class="dropdown-item" th:if="${attoreLogged}" th:href="@{/riservata}" th:text="${attore.nome} +' '+${attore.cognome}"></a> 

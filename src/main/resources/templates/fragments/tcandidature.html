@@ -13,7 +13,17 @@
             <input class="form-control" id="myInput" type="text" placeholder="Cerca.." oninput="filterTable()">
         </div>
         <br>
-  
+  		    <!-- DROPDOWN STATO -->
+		<div class="filtro-stato">
+		    <select id="filterDropdown" onchange="filterTable(this.value)">
+		        <option value="Tutti">Filtra per stato</option>
+		        <option value="Inviata">Inviata</option>
+		        <option value="Accettata">Accettata</option>
+		        <option value="Respinta">Respinta</option>
+		        <option value="Eliminata">Eliminata</option>
+		    </select>
+		</div>
+
         <table class="table table-responsive">
             <thead>
                 <tr>

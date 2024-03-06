@@ -53,16 +53,27 @@ public class RiservataController
 	}
 	
 	@PostMapping
-	public String gestioneModifica(
+	public String gestioneModificaRitr(
 			@RequestParam(name="ritratto",required = false) MultipartFile ritratto,
-		    @RequestParam(name="foto",required = false) MultipartFile foto, 
-		    HttpSession session, 
-		    Model model
-		    ) 
-	{	
+			HttpSession session, 
+			Model model
+			) {
 		Attore attore = (Attore) session.getAttribute("attore");
-		attoreService.newRitratto(attore.getId(), ritratto,session);
 		
+		attoreService.newRitratto(attore.getId(), ritratto,session);
+		model.addAttribute("attore", attore);
+		return "redirect:/riservata";
+	}
+	
+	@PostMapping("/foto")
+	public String gestioneModificaFoto(
+			@RequestParam(name="foto",required = false) MultipartFile foto, 
+			HttpSession session, 
+			Model model
+			) {
+		Attore attore = (Attore) session.getAttribute("attore");
+		
+		attoreService.newFoto(attore.getId(), foto,session);
 		model.addAttribute("attore", attore);
 		return "redirect:/riservata";
 	}

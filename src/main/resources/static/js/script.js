@@ -1,7 +1,15 @@
-//BTN CARICA DISATTIVO/ATTIVO
+//BTN CARICA DISATTIVO/ATTIVO FOTO
 function checkFile() {
     var fileInput = document.getElementById('foto');
     var caricaImmagineButton = document.getElementById('caricaImmagine');
+
+    // Abilita il pulsante solo se è stato selezionato un file
+    caricaImmagineButton.disabled = !fileInput.files || fileInput.files.length === 0;
+}
+//BTN CARICA DISATTIVO/ATTIVO RITRATTO
+function checkFile2() {
+    var fileInput = document.getElementById('ritratto');
+    var caricaImmagineButton = document.getElementById('caricaRitratto');
 
     // Abilita il pulsante solo se è stato selezionato un file
     caricaImmagineButton.disabled = !fileInput.files || fileInput.files.length === 0;
@@ -14,7 +22,6 @@ function checkFile() {
         $('.tab-pane:first').addClass('show active');
     });
     
-
 //CERCA in tutte le colonne
 	function filterTable() {
         var input, filter, table, tr, td, i, txtValue;
@@ -172,21 +179,3 @@ function checkFile() {
     });
     
 
-	       // Salva la tab attiva prima del submit
-    document.getElementById('myTabs').addEventListener('click', function (event) {
-        localStorage.setItem('activeTab', event.target.getAttribute('href'));
-    });
-
-    // Ripristina la tab attiva dopo il ricaricamento della pagina
-    window.onload = function () {
-        var activeTab = localStorage.getItem('activeTab');
-        if (activeTab) {
-            document.querySelector('[href="' + activeTab + '"]').click();
-        }
-    };
-
-    // Rimuovi l'informazione quando l'utente lascia la pagina delle tabs
-    window.addEventListener('beforeunload', function () {
-        localStorage.removeItem('activeTab');
-    });
-	

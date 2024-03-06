@@ -118,7 +118,7 @@ public class AttoreServiceImpl implements AttoreService {
 			
 			String estensione = newFoto.getContentType();
 			
-			attore.setRitratto("data:"+ estensione + ";base64," + Base64.getEncoder().encodeToString(newFoto.getBytes()));
+			attore.setFoto("data:"+ estensione + ";base64," + Base64.getEncoder().encodeToString(newFoto.getBytes()));
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

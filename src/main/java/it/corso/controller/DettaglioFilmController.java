@@ -61,7 +61,7 @@ public class DettaglioFilmController {
 		
 		if (attore!=null) {
 			candidaturaService.creaCandidatura(attore, film);
-			return "redirect:/dettagliofilm";
+			return "redirect:/dettagliofilm?id=" + id;
 		}else {
 			return "redirect:/registrazione";
 		}

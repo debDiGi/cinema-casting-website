@@ -23,11 +23,10 @@
         <p th:text="'Data di uscita: ' + ${#temporals.format(film.dataUscita, 'dd/MM/yyyy')}"></p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
         <a th:if="${!film.open}" th:href="@{'https://www.youtube.com/watch?v=' + ${film.trailer}}" class="btn btn-dark btn-lg px-4 me-md-2 fw-bold">Guarda il trailer</a>
-        <a 
-        th:if="${film.open and !adminLogged and ((!attoreLogged) or (attoreLogged and !isCandidato))}" 
-        th:href="@{/dettagliofilm/candidati(id=${film.id})}" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold btn-iscriviti">
+        <a th:if="${film.open and !adminLogged and ((!attoreLogged) or (attoreLogged and !isCandidato))}" th:href="@{/dettagliofilm/candidati(id=${film.id})}" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold btn-iscriviti">
         Iscriviti ora!
         </a>
+        
         <a th:if="${film.open and !adminLogged and attoreLogged and isCandidato}" class="btn btn-dark disabled btn-lg px-4 me-md-2 fw-bold btn-iscriviti">Sei già iscritto</a>
         <a th:if="${film.open and adminLogged}" class="btn btn-dark disabled btn-lg px-4 me-md-2 fw-bold btn-iscriviti">Iscriviti ora!</a>
         
@@ -36,8 +35,9 @@
       <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
           <img class="rounded-lg-3 hero-locandina" th:src="@{${film.locandina}}" alt="locandina">
       </div>
-      
 
+	
+	
       	<!-- CAST -->	
 	<div class="container mb-2 mt-2">
       
@@ -73,10 +73,16 @@
 
 <div th:replace="~{fragments/footer :: footer}"></div>
 
-    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script>
+	  var modal = new bootstrap.Modal(document.getElementById('exampleModalCenter'), {
+	    backdrop: 'static',
+	    keyboard: false
+	  });
+	</script>
 </body>
 </html>

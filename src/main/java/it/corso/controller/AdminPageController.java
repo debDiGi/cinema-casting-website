@@ -18,12 +18,17 @@ import it.corso.service.CandidaturaService;
 import it.corso.service.FilmService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 @Controller
 @RequestMapping("/adminpage")
 public class AdminPageController {
 
+	private static final Logger logger = LoggerFactory.getLogger(AdminPageController.class);
+
+	
 	@Autowired
 	private AdminService adminService;
 	@Autowired
@@ -97,19 +102,32 @@ public class AdminPageController {
 			@RequestParam ("psw") String psw
 			)
 	{	
-		
+		// Log della richiesta POST ricevuta
+        logger.info("Richiesta POST ricevuta su /adminpage");
+        
 		if (adminService.checkAdmin(nome)!=null) 
 		{			
+			// Log di errore se il nomeUtente esiste già
+            logger.error("Tentativo di creare un admin con un'email già esistente: {}", nome);
 			return "redirect:/adminpage?err"; // aggiungo '?err' per il redirect in caso di email esistente, così nel getPage non è null e si attiva th:if
 		}
 		
 		//msg dati mancanti err
 		if (nome.isBlank() || psw.isBlank()) {
+			logger.debug("Dati incompleti durante la creazione di un nuovo admin");
 			return "redirect:/adminpage?incompleto";
 		}
 		
+		// Log dell'azione di creazione di un nuovo admin
+        logger.info("Creazione di un nuovo admin: {}", nome);
+		
 		adminService.creaAdmin(nome, psw, 2);
+		
+		// Log dell'avvenuta creazione dell'admin
+        logger.info("Nuovo admin creato con successo: {}", nome);
+        
 		return "redirect:/adminpage?success";
+		
 		
 	}
 	

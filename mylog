@@ -52,3 +52,6 @@
 2024-03-15T16:54:01.486+01:00  INFO 11584 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
 2024-03-15T16:54:01.495+01:00  INFO 11584 --- [restartedMain] i.corso.CinemaCastingWebsiteApplication  : Started CinemaCastingWebsiteApplication in 1.271 seconds (process running for 113.924)
 2024-03-15T16:54:01.497+01:00  INFO 11584 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-03-15T17:01:24.342+01:00  INFO 11584 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-15T17:01:24.343+01:00  INFO 11584 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-15T17:01:24.344+01:00  INFO 11584 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms

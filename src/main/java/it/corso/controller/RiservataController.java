@@ -42,6 +42,8 @@ public class RiservataController
 		Attore attore = (Attore) session.getAttribute("attore");
 		List<Candidatura> myCandidature = candidaturaService.getCandidatureAttore(attore);
 		boolean attoreLogged = attore!=null;
+		Attore attoreMod = attoreService.getAttoreById(attore.getId());
+		model.addAttribute("attoreMod", attoreMod);
 		model.addAttribute("attoreLogged", attoreLogged);
 		model.addAttribute("filmsMap", filmsMap);
 		model.addAttribute("attore", attore);

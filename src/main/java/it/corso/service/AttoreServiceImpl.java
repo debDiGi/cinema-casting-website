@@ -95,7 +95,7 @@ public class AttoreServiceImpl implements AttoreService {
 	public Attore checkAttore(String email) {
 			return attoreDao.findByEmail(email);
 	}
-
+	
 	@Override
 	public void newRitratto(int id, MultipartFile newRitr, HttpSession session) {
 		Attore attore = attoreDao.findById(id).get();

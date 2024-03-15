@@ -1,83 +1,83 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
-</head>
+	<head>
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <title></title>
+	</head>
 
-<body>
-    <div class="container mt-3" th:fragment="user">
-
-        <h2>Gestione utenze con accesso amministratore</h2>
-        <p>Qui puoi visualizzare tutte le utenze abilitate come amministratori. Puoi creare ed eliminare le utenze admin, che potranno gestire le candidature, i film e i profili attore ma non avranno accesso alla gestione delle utenze.</p>
-        <div class="d-flex">
-            <img src="../image/search.svg" alt="cerca" style="min-width:20px; max-width:20px; margin-right:15px;">
-            <input class="form-control" id="myInputu" type="text" placeholder="Cerca.." oninput="filterTableU()">
-        </div>
-
-        <br>
-
-        <div class="row">
-            <div class="col-md-6">
-                <table class="table table-responsive">
-                    <thead>
-                        <tr>
-                            <th scope="col" style="width: 10%;"><input type="checkbox" id="selezionaTuttou"></th>
-                            <th style="width: 30%;">Username</th>
-                            <th style="width: 30%;">Autorizzazione liv.</th>
-                            <th style="width: 30%;"></th>
-                        </tr>
-                    </thead>
-                    <tbody id="myTableu">
-                        <tr th:each="u : ${utenze}">
-                            <td style="width: 10%;"><input th:if="${u.nome!= 'boss'}" type="checkbox" name="selezionaRiga"></td>
-                            <td style="width: 30%;" th:text="${u.nome}"></td>
-                            <td style="width: 30%;" th:text="${u.livello}"></td>
-                            <td style="width: 30%;">
-                                <a th:if="${u.nome!= 'boss'}" th:href="@{adminpage/cancellaAdmin(id=${u.id})}" class="text-danger">
-                                    Elimina<img src="../image/trash.svg" alt="Elimina" style="min-width:10px; max-width:20px">
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="col-md-6">
-                <div class="container d-flex justify-content-left">
-					
-                    <form th:object="${admin}" method="post" class="p-4 border rounded">
-                        <h4>Crea una nuova utenza amministratore</h4>
-                        <div th:if="${success}" class="alert alert-success" role="alert">
-					  Nuova utenza admin creata con successo!
-					</div>
-                        <div th:if="${nomeErr}" class="alert alert-warning" role="alert">
-                            Esiste già un'utenza associato a questa username.
-                        </div>
-                        <div th:if="${incompleto}" class="alert alert-warning" role="alert">
-                            Inserisci tutti i dati obbligatori (*).
-                        </div>
-                        <div class="mb-3">
-                            <label>Username <span style="color:red">*</span></label>                         
-    						<input type="text" class="form-control" th:field="*{nome}"/>
-                        </div>
-                        <div class="mb-3">
-                            <label>Password: <span style="color:red">*</span></label>
-                            <input type="password" class="form-control" th:field="*{psw}"  placeholder="Inserire password">
-                        </div>
-                        <div class="mb-3">
-                            <input type="submit" class="btn btn-primary" value="Crea nuova utenza">
-                        </div>       
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+	<body>
+	    <div class="container mt-3" th:fragment="user">
+	
+	        <h2>Gestione utenze con accesso amministratore</h2>
+	        <p>Qui puoi visualizzare tutte le utenze abilitate come amministratori. Puoi creare ed eliminare le utenze admin, che potranno gestire le candidature, i film e i profili attore ma non avranno accesso alla gestione delle utenze.</p>
+	        <div class="d-flex">
+	            <img src="../image/search.svg" alt="cerca" style="min-width:20px; max-width:20px; margin-right:15px;">
+	            <input class="form-control" id="myInputu" type="text" placeholder="Cerca.." oninput="filterTableU()">
+	        </div>
+	
+	        <br>
+	
+	        <div class="row">
+	            <div class="col-md-6">
+	                <table class="table table-responsive">
+	                    <thead>
+	                        <tr>
+	                            <th scope="col" style="width: 10%;"><input type="checkbox" id="selezionaTuttou"></th>
+	                            <th style="width: 30%;">Username</th>
+	                            <th style="width: 30%;">Autorizzazione liv.</th>
+	                            <th style="width: 30%;"></th>
+	                        </tr>
+	                    </thead>
+	                    <tbody id="myTableu">
+	                        <tr th:each="u : ${utenze}">
+	                            <td style="width: 10%;"><input th:if="${u.nome!= 'boss'}" type="checkbox" name="selezionaRiga"></td>
+	                            <td style="width: 30%;" th:text="${u.nome}"></td>
+	                            <td style="width: 30%;" th:text="${u.livello}"></td>
+	                            <td style="width: 30%;">
+	                                <a th:if="${u.nome!= 'boss'}" th:href="@{adminpage/cancellaAdmin(id=${u.id})}" class="text-danger">
+	                                    Elimina<img src="../image/trash.svg" alt="Elimina" style="min-width:10px; max-width:20px">
+	                                </a>
+	                            </td>
+	                        </tr>
+	                    </tbody>
+	                </table>
+	            </div>
+	
+	            <div class="col-md-6">
+	                <div class="container d-flex justify-content-left">
+						
+	                    <form th:object="${newAdmin}" method="post" class="p-4 border rounded">
+	                        <h4>Crea una nuova utenza amministratore</h4>
+	                        <div th:if="${success}" class="alert alert-success" role="alert">
+						  		Nuova utenza admin creata con successo!
+							</div>
+	                        <div th:if="${nomeErr}" class="alert alert-warning" role="alert">
+	                            Esiste già un'utenza associata a questa username.
+	                        </div>
+	                        <div th:if="${incompleto}" class="alert alert-warning" role="alert">
+	                            Inserisci tutti i dati obbligatori (*).
+	                        </div>
+	                        <div class="mb-3">
+	                            <label>Username: <span style="color:red">*</span></label>                         
+	    						<input type="text" class="form-control" th:field="*{nome}" placeholder="Inserire username">
+	                        </div>
+	                        <div class="mb-3">
+	                            <label>Password: <span style="color:red">*</span></label>
+	                            <input type="password" class="form-control" th:field="*{psw}"  placeholder="Inserire password">
+	                        </div>
+	                        <div class="mb-3">
+	                            <input type="submit" class="btn btn-primary" value="Crea nuova utenza">
+	                        </div>       
+	                    </form>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	
+	    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+	</body>
 
 </html>

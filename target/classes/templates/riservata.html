@@ -15,9 +15,9 @@
         <div class="sidebar sidebarbg-riservata">
         <h4>CastingN'Production</h4>
         	<div class="ciao-img">
-           		<img th:if="${attore.ritratto!=null}" th:src="${attore.ritratto}" alt="Immagine del Profilo" class="profile-image">
-			    <img th:if="${attore.ritratto==null}" th:src="@{../image/ritratto-blank.webp}" alt="Immagine del Profilo" class="profile-image">
-			    <div class="greetings" th:text="'Ciao ' + ${attore.nome} + '!'"></div>
+           		<img th:if="${attoreMod.ritratto!=null}" th:src="${attoreMod.ritratto}" alt="Immagine del Profilo" class="profile-image">
+			    <img th:if="${attoreMod.ritratto==null}" th:src="@{../image/ritratto-blank.webp}" alt="Immagine del Profilo" class="profile-image">
+			    <div class="greetings" th:text="'Ciao ' + ${attoreMod.nome} + '!'"></div>
 			</div>
             <ul class="nav nav-pills link-group" id="myTabs" style="margin-top: 2em;" >
             	
@@ -33,8 +33,8 @@
                 <nav class="navbar">
                     <a class="home" th:href="@{/}">Home</a>
                     <div class="dropdown">
-	                    <img th:if="${attore.ritratto!=null}" th:src="${attore.ritratto}" alt="User Image" data-bs-toggle="dropdown" aria-expanded="false" class="profile-image dropdown-toggle" style="width:40px; height:40px;">
-				    	<img th:if="${attore.ritratto==null}" th:src="@{../image/user.svg}" alt="User Image" width="40" height="40" data-bs-toggle="dropdown" aria-expanded="false" class="profile-image dropdown-toggle">
+	                    <img th:if="${attoreMod.ritratto!=null}" th:src="${attoreMod.ritratto}" alt="User Image" data-bs-toggle="dropdown" aria-expanded="false" class="profile-image dropdown-toggle" style="width:40px; height:40px;">
+				    	<img th:if="${attoreMod.ritratto==null}" th:src="@{../image/ritratto-blank.webp}" alt="User Image" style="width:40px; height:40px; margin-right:1.5em" data-bs-toggle="dropdown" aria-expanded="false" class="profile-image dropdown-toggle">
 	                    <ul class="dropdown-menu dropdown-menu-end my-dropdown-menu" aria-labelledby="dropdownMenuButton">
 	                        <li><a th:href="@{riservata/logout}" class="dropdown-item">Logout</a></li>
 	                    </ul>

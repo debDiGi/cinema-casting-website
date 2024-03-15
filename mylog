@@ -1,0 +1,54 @@
+2024-03-15T16:52:09.582+01:00  INFO 11584 --- [restartedMain] i.corso.CinemaCastingWebsiteApplication  : Starting CinemaCastingWebsiteApplication using Java 17.0.9 with PID 11584 (C:\Users\crazy\Desktop\Spring\workspace\workspace\cinema-casting-website\target\classes started by crazy in C:\Users\crazy\Desktop\Spring\workspace\workspace\cinema-casting-website)
+2024-03-15T16:52:09.586+01:00  INFO 11584 --- [restartedMain] i.corso.CinemaCastingWebsiteApplication  : No active profile set, falling back to 1 default profile: "default"
+2024-03-15T16:52:09.658+01:00  INFO 11584 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-03-15T16:52:09.658+01:00  INFO 11584 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-03-15T16:52:10.830+01:00  INFO 11584 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-15T16:52:10.924+01:00  INFO 11584 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 79 ms. Found 4 JPA repository interfaces.
+2024-03-15T16:52:11.729+01:00  INFO 11584 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-03-15T16:52:11.747+01:00  INFO 11584 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-15T16:52:11.748+01:00  INFO 11584 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-15T16:52:11.831+01:00  INFO 11584 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-03-15T16:52:11.831+01:00  INFO 11584 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2172 ms
+2024-03-15T16:52:12.020+01:00  INFO 11584 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-03-15T16:52:12.225+01:00  INFO 11584 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@d38e721
+2024-03-15T16:52:12.228+01:00  INFO 11584 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-03-15T16:52:12.298+01:00  INFO 11584 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-15T16:52:12.415+01:00  INFO 11584 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-03-15T16:52:12.482+01:00  INFO 11584 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-03-15T16:52:12.817+01:00  INFO 11584 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-15T16:52:12.944+01:00  WARN 11584 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2024-03-15T16:52:14.233+01:00  INFO 11584 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-15T16:52:14.239+01:00  INFO 11584 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-15T16:52:14.773+01:00  WARN 11584 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-15T16:52:14.815+01:00  INFO 11584 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-03-15T16:52:15.287+01:00  INFO 11584 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-15T16:52:15.359+01:00  INFO 11584 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-03-15T16:52:15.372+01:00  INFO 11584 --- [restartedMain] i.corso.CinemaCastingWebsiteApplication  : Started CinemaCastingWebsiteApplication in 6.33 seconds (process running for 7.8)
+2024-03-15T16:54:00.110+01:00  INFO 11584 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 34 class path changes (0 additions, 0 deletions, 34 modifications)
+2024-03-15T16:54:00.134+01:00  INFO 11584 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-15T16:54:00.137+01:00  INFO 11584 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-15T16:54:00.148+01:00  INFO 11584 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-03-15T16:54:00.263+01:00  INFO 11584 --- [restartedMain] i.corso.CinemaCastingWebsiteApplication  : Starting CinemaCastingWebsiteApplication using Java 17.0.9 with PID 11584 (C:\Users\crazy\Desktop\Spring\workspace\workspace\cinema-casting-website\target\classes started by crazy in C:\Users\crazy\Desktop\Spring\workspace\workspace\cinema-casting-website)
+2024-03-15T16:54:00.264+01:00  INFO 11584 --- [restartedMain] i.corso.CinemaCastingWebsiteApplication  : No active profile set, falling back to 1 default profile: "default"
+2024-03-15T16:54:00.626+01:00  INFO 11584 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-15T16:54:00.653+01:00  INFO 11584 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 25 ms. Found 4 JPA repository interfaces.
+2024-03-15T16:54:00.780+01:00  INFO 11584 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-03-15T16:54:00.781+01:00  INFO 11584 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-15T16:54:00.781+01:00  INFO 11584 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-15T16:54:00.822+01:00  INFO 11584 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-03-15T16:54:00.823+01:00  INFO 11584 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 556 ms
+2024-03-15T16:54:00.890+01:00  INFO 11584 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-03-15T16:54:00.895+01:00  INFO 11584 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@12396d15
+2024-03-15T16:54:00.896+01:00  INFO 11584 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-03-15T16:54:00.898+01:00  INFO 11584 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-15T16:54:00.906+01:00  INFO 11584 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-03-15T16:54:00.914+01:00  INFO 11584 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-15T16:54:00.916+01:00  WARN 11584 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2024-03-15T16:54:01.099+01:00  INFO 11584 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-15T16:54:01.099+01:00  INFO 11584 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-15T16:54:01.293+01:00  WARN 11584 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-15T16:54:01.308+01:00  INFO 11584 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-03-15T16:54:01.463+01:00  INFO 11584 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-15T16:54:01.486+01:00  INFO 11584 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-03-15T16:54:01.495+01:00  INFO 11584 --- [restartedMain] i.corso.CinemaCastingWebsiteApplication  : Started CinemaCastingWebsiteApplication in 1.271 seconds (process running for 113.924)
+2024-03-15T16:54:01.497+01:00  INFO 11584 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged

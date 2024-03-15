@@ -48,7 +48,9 @@ public class AdminPageController {
 		List<Admin> utenze = adminService.getAdmins();
 		List<Candidatura> candidature = candidaturaService.getCandidature();
 		Admin admin = (Admin) session.getAttribute("admin");
+		Admin newAdmin = new Admin();
 		boolean adminLogged = admin.getNome().equals("boss");
+		model.addAttribute("newAdmin", newAdmin);
 		model.addAttribute("attori", attori);
 		model.addAttribute("films", films);
 		model.addAttribute("adminLogged", adminLogged);

@@ -24,13 +24,15 @@ public class FormAttoreController {
 	@GetMapping
 	public String getPage(
 			@RequestParam (name="etaerr", required = false)String etaErr,
+			
 			Model model,
 			HttpSession session
 			) 
 	{
 	
 	Attore attore = (Attore) session.getAttribute("attore");
-	
+	Attore attoreMod = attoreService.getAttoreById(attore.getId());
+	model.addAttribute("attoreMod", attoreMod);
 	model.addAttribute("attore", attore);
 	model.addAttribute("etaErr", etaErr!=null);
 	 return "formattore";
@@ -43,9 +45,18 @@ public class FormAttoreController {
 			@RequestParam(name="dataNascita",required = false) LocalDate dataNascita,
 			@RequestParam(name="email",required = false) String email,
 			@RequestParam(name="password",required = false) String password,
-		    HttpSession session
+		    HttpSession session,
+		    Model model
 		    ) {
+				
+		Attore attore = (Attore) session.getAttribute("attore");
 		
+		if(dataNascita==null) {
+			dataNascita = attore.getDataNascita();
+		}
+		if(password==null||password.equalsIgnoreCase("")) {
+			password = attore.getPassword();
+		}
 		
 		//msg data err(min/max)
 		LocalDate etaMin = LocalDate.parse("2005-02-07");
@@ -54,10 +65,20 @@ public class FormAttoreController {
 		{
 			return "redirect:/formattore?etaerr";
 		}
+				
+	    try {
+	    	attoreService.modificaAttore(attore.getId(), nome, cognome, dataNascita, password, email);
+		    return "redirect:/riservata"; //add success
+	    } catch (Exception e) {
+	        // Gestisci l'errore, ad esempio, aggiungi un attributo al model per visualizzare un messaggio di errore.
+	        model.addAttribute("errore", "Si è verificato un errore durante il salvataggio delle modifiche.");
+	        return "redirect:/formattore?err";
+	    }
 		
-		Attore attore = (Attore) session.getAttribute("attore");
-		attoreService.modificaAttore(attore.getId(), nome, cognome, dataNascita, password, email);
-	    return "redirect:/riservata";
+		
+		
+		
+		
 		
 	}
 	

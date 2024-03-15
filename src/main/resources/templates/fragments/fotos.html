@@ -8,8 +8,8 @@
 	<div class="container mt-3" th:fragment="fotos">
 		<div class="row image-box">
             <div class="col-md-6">
-                <img th:if="${attore.ritratto!=null}" th:src="${attore.ritratto}" alt="foto primo piano" class="img-fluid custom-image">
-                <img th:if="${attore.ritratto==null}" th:src="@{../image/ritratto-blank.webp}" alt="foto primo piano" class="img-fluid custom-image">
+                <img th:if="${attoreMod.ritratto!=null}" th:src="${attoreMod.ritratto}" alt="foto primo piano" class="img-fluid custom-image">
+                <img th:if="${attoreMod.ritratto==null}" th:src="@{../image/ritratto-blank.webp}" alt="foto primo piano" class="img-fluid custom-image">
                 <form th:object="${attore}" method="post" action="" enctype="multipart/form-data" class="mt-3">
 		        	<label for="ritratto" th:text="'Carica un nuovo primo piano:'"></label><br>
 		        	<input type="file" id="ritratto" name="ritratto" accept="image/*" th:field="*{ritratto}" onchange="checkFile2()">
@@ -18,8 +18,8 @@
             </div>
             
             <div class="col-md-6">
-                <img th:if="${attore.foto!=null}" th:src="${attore.foto}" alt="foto intera" class="img-fluid custom-image">
-                <img th:if="${attore.foto==null}" th:src="@{../image/foto-blank.jpg}" alt="Foto intera" class="img-fluid custom-image">
+                <img th:if="${attoreMod.foto!=null}" th:src="${attoreMod.foto}" alt="foto intera" class="img-fluid custom-image">
+                <img th:if="${attoreMod.foto==null}" th:src="@{../image/foto-blank.jpg}" alt="Foto intera" class="img-fluid custom-image">
                 <form th:object="${attore}" method="post" action="/riservata/foto" enctype="multipart/form-data" class="mt-3">             
 				<label for="foto" th:text="'Carica una foto a figura intera:'"></label><br>
 			        <input type="file" id="foto" name="foto" accept="image/*" th:field="*{foto}" onchange="checkFile()">

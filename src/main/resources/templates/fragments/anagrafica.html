@@ -8,10 +8,10 @@
 		<div class="card details-card" th:fragment="anagrafica">
             <div class="card-body">
                 <h2 class="card-title">Informazioni dell'account</h2>
-                <p class="card-text" th:text="'Nome: '+${attore.nome}"></p>
-                <p class="card-text" th:text="'Cognome: '+${attore.cognome}"></p>
-                <p class="card-text" th:text="'Data di Nascita: ' + ${#temporals.format(attore.dataNascita, 'dd/MM/yyyy')}"></p>
-                <p class="card-text" th:text="'Email: '+ ${attore.email}"></p>
+                <p class="card-text" th:text="'Nome: '+${attoreMod.nome}"></p>
+                <p class="card-text" th:text="'Cognome: '+${attoreMod.cognome}"></p>
+                <p class="card-text" th:text="'Data di Nascita: ' + ${#temporals.format(attoreMod.dataNascita, 'dd/MM/yyyy')}"></p>
+                <p class="card-text" th:text="'Email: '+ ${attoreMod.email}"></p>
             </div>
         <a class="btn btn-dark mod-anag-btn" th:href="@{/formattore(id=${attore.id})}">
 	  		Modifica Anagrafica
